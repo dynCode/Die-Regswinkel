@@ -1,0 +1,28 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub25" ng-click="showMenu('#navigationSub25')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <button class="button button--large header2"><img src="images/ccmaIcon.png" alt="" /> <div>Naaste CCMA kantoor:</div></button>
+        
+        <div style="height: 100%; width:100%" ng-controller="ccmaController">
+            <h4><i class="fa fa-map-marker"></i> {{ccmaKantoor.title}}</h4>
+            <div ng-bind-html="ccmaKantoor.infoWindow">{{}}</div>
+            <ng-map default-style="false" center="current-location" zoom="11" style="height: 350px; width:100%">
+                <marker position="current-location" icon="https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/jyMarker.png">
+                </marker>
+                <marker id="{{ccmaKantoor.id}}" position="{{ccmaKantoor.position}}" centered="true">
+                </marker>
+            </ng-map>
+        </div>
+    </div>
+</ons-page>

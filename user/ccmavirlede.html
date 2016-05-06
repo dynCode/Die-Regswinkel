@@ -1,0 +1,31 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub26" ng-click="showMenu('#navigationSub26')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <button class="button button--large header2"><img src="images/ccmaIcon.png" alt="" /> <div>CCMA vir Solidariteitlede:</div></button>        
+        <p>Solidariteit bied ŉ omvattende diens aan sy lede en sal namens jou die  nodige KVBA-vorms aanvra en voltooi.</p>
+        <div style="text-align: center">
+            <ons-row><ons-col><input type="text" placeholder="Naam en van" ng-model="data.ccmaName" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="E-Pos" ng-model="data.ccmaEmail" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="number" placeholder="Telefoonnommer" ng-model="data.ccmaTel" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><textarea class="textarea" rows="3" placeholder="Kort beskrywing van saak" ng-model="data.ccmaSaak" style="width: 80%"></textarea></ons-col></ons-row>
+            <ons-row><ons-col><label class="radio-button"><input type="radio" name="lid" ng-model="data.ccmaLid" value="Individuele Lid" checked="checked"><div class="radio-button__checkmark"></div>Individuele Lid</label></ons-col></ons-row>
+            <ons-row><ons-col><label class="radio-button"><input type="radio" name="lid" ng-model="data.ccmaLid" value="Kollektiewe Lid"><div class="radio-button__checkmark"></div>Kollektiewe Lid</label></ons-col></ons-row>
+            <ons-row><ons-col><button class="button submitMe" ng-click="ccmalid()" style="margin: 10px 0;">STUUR</button></ons-col></ons-row>
+        </div>
+        <p><small><i>Solidariteit se diens is onderhewig aan die Vakbond se bepalings en voorwaardes. Besoek www.solidariteit.co.za</i></small></p>
+    </div>
+</ons-page>

@@ -1,0 +1,404 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 26, 2016, 12:19:39 PM
+    Author     : Llewellyn
+*/
+
+@font-face {
+    font-family: museoSlab300;
+    src: url(fonts/MuseoSlab-300.ttf);
+}
+
+@font-face {
+    font-family: museoSlab700;
+    src: url(fonts/MuseoSlab-700.ttf);
+}
+
+@font-face {
+    font-family: museoSlab500;
+    src: url(fonts/MuseoSlab-500.ttf);
+}
+
+@font-face {
+    font-family: gillSansMt;
+    src: url(fonts/gillsansmt.ttf);
+}
+
+@font-face {
+    font-family: GillSans_1;
+    src: url(fonts/GillSans.ttf) format("truetype");
+    src: url(fonts/33535gillsansmt.eot);
+}
+
+body {
+    font-family: GillSans_1, sans-serif;
+}
+
+input, textarea {
+    margin: 5px;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.checkbox > .checkbox__checkmark:before {
+    border: 1px solid rgba(244,129,32,0.81);
+}
+
+.checkbox > input[type="checkbox"]:checked + .checkbox__checkmark:before {
+    background: rgba(244,129,32,0.81);
+    border: 1px solid rgba(244,129,32,0.81);
+}
+
+.submitMe {
+    font-family: GillSans_1, sans-serif;
+    background-color: #f48120;
+}
+
+.page__background {
+    background-color: #efefef;
+}
+
+.pageBody {
+    padding: 20px;
+}
+
+.siteheader{
+    font-family: museoSlab500;
+    color: #f48120;
+    border-bottom: 2px solid #f48120;
+    font-size: 30px;
+}
+
+.disBar {
+    background-color: #f48120;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.disBar h1 {
+    background-color: #f48120;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    font-family: museoSlab300;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.button--large--quiet {
+    font-family: museoSlab300;
+    color: #f48120;
+    text-align: left;
+}
+
+.button--large--quiet span{
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.button--large--quiet img{
+    height: 25px;
+}
+
+.navigation-bar {
+    background-color: #fff;
+    box-shadow: 0 5px 10px -6px black;
+}
+
+.navigation-bar__bg {
+    background-color: #fff;
+}
+
+.toolbar-button, .toolbar-button--outline, .toolbar-button--quiet {
+    font-family: museoSlab300;
+    color: #f48120;
+}
+
+.navigation-bar__title {
+    font-family: museoSlab500;
+    color: #f48120;
+}
+
+.searchBar {
+    background-color: #5d5d5d;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.menu1 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #e85e00;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase; 
+}
+
+.menu2 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f58220;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.menu3 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f2903d;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.menu4 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f9ad6c;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.menu1 img, .menu2 img, .menu3 img, .menu4 img {
+    vertical-align: middle;
+    /* width: 25%; */
+    border-right: 10px solid #efefef;
+    padding: 5px;
+    margin: -4px 10px -4px -10px;
+}
+
+.menu1 div, .menu2 div, .menu3 div, .menu4 div {
+    margin-left: 100px;
+    word-wrap: normal;
+    white-space: normal;
+    font-size: 30px;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    line-height: 50%;
+}
+
+.header1 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #e85e00;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71); 
+}
+
+.header2 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f58220;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+}
+
+.header3 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f2903d;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+}
+
+.header4 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f9ad6c;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+}
+
+.header1 img, .header2 img, .header3 img, .header4 img {
+    vertical-align: middle;
+    width: 40px;
+}
+
+.header1 div, .header2 div, .header3 div, .header4 div {
+    margin-left: 50px;
+    word-wrap: normal;
+    white-space: normal;
+    font-size: 20px;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    line-height: 20px;
+}
+
+.sectionTop {
+    font-family: museoSlab500;
+    width: 100%;
+    height: 60px;
+    margin: 10px auto;
+    color: #f48120;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase; 
+}
+
+.sectionTop img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    margin: -4px 10px -4px 10px;
+}
+
+.sectionTop div {
+    margin-left: 100px;
+    word-wrap: normal;
+    white-space: normal;
+    font-size: 30px;
+    /* top: -50%; */
+    position: relative;
+    transform: translateY(-100%);
+}
+
+.createAcc {
+    position: fixed;
+    bottom: 0px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+a {
+    color: #f48120;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sub25 {
+    font-size: 25px; 
+    line-height: 25px;
+}
+
+.sub20 {
+    font-size: 20px; 
+    line-height: 15px;
+}
+
+.sub15 {
+    font-size: 15px; 
+    line-height: 15px;
+}
+
+.menuPopover {
+    text-align: left;
+    background-color: #5d5d5d;
+    color: #FFF;
+    margin: 5px;
+    padding: 5px;
+}
+
+.smallmenu1 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #e85e00;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase; 
+}
+
+.smallmenu2 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f58220;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.smallmenu3 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f2903d;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.smallmenu4 {
+    font-family: museoSlab500;
+    width: 100%;
+    margin: 10px auto;
+    color: #FFF;
+    background-color: #f9ad6c;
+    text-align: left;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.smallmenu1 img, .smallmenu2 img, .smallmenu3 img, .smallmenu4 img {
+    vertical-align: middle;
+    /* width: 25%; */
+    height: 30px;
+    border-right: 5px solid #5D5D5D;
+    padding: 8px;
+    margin: -8px 5px -6px -10px;
+}
+
+.smallmenu1 div, .smallmenu2 div, .smallmenu3 div, .smallmenu4 div {
+    word-wrap: normal;
+    white-space: normal;
+    font-size: 16px;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    line-height: 50%;
+    display: inline-block;
+}
+
+.articleList {
+    padding: 0 10px;
+    word-wrap: break-word;
+    line-height: normal;
+}
+
+.inlineImg {
+    float: left;
+    width: 40%;
+    padding-right: 5px;
+}
+
+.greyBut {
+    width: 75%;
+    background-color: #5d5d5d;
+    color: #fff;
+    font-family: museoSlab500;
+    border-radius: 0px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+}

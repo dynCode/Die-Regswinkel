@@ -1,0 +1,26 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>TERUG</ons-back-button>
+        </div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <h1 class="siteheader"><img src="images/scaleIcon.png" height="30"  alt="" /> DIE REGSWINKEL</h1>
+        <div style="text-align: center">
+            <img src="images/newUserIcon.png"  alt="" />
+        </div>
+        <div class="disBar">
+            <h1>Skep 'n profiel</h1>
+        </div>
+        <div style="text-align: center">
+            <!--<p>Sleutel jou e-posadres in en jou besonderhede sal aan jou gestuur word.</p>-->
+            <ons-row><ons-col><input type="text" placeholder="Gebruikersnaam" ng-model="data.signupUsername" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="Naam" ng-model="data.signupName" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="Van" ng-model="data.signupSurname" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="E-Pos" ng-model="data.signupEmail" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><button class="button submitMe" ng-click="signup()" style="margin: 10px 0;">STUUR</button></ons-col></ons-row>
+        </div>
+    </div>
+</ons-page>

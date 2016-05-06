@@ -1,0 +1,34 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub18" ng-click="showMenu('#navigationSub18')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <button class="button button--large header3"><img src="images/dienskontrakIcon.png" alt="" /> <div>Dienskontrak nagaan-diens:</div></button>
+        <div ng-show="homeText">
+            <p>Net beskikbaar vir aktiewe lede...</p>
+            <p>Jy is nie 'n aktiewe lid van <strong>Solidariteit</strong> nie, <a href="" ng-click="myNavigator.pushPage('user/register.html', { animation : 'slide' } )">klik hier</a> om uit te vind hoe om aan te sluit.</p>
+        </div>
+        <div ng-hide="homeText">
+            <p>Stuur jou dienskontrak na <a href="mailto:diens@solidariteit.co.za">diens@solidariteit.co.za</a> of laai hom hieronder op in een van die gespesifiseerde formate.</p>
+            <p>Solidariteit kyk graag na jou kontrak en gee advies so ver moontlik.</p>
+            <div style="text-align: center">
+                <input type="file" name="file" onchange="angular.element(this).scope().uploadedFile(this)" />
+                <button class="button greyBut" ng-click="uploadKontrak()">Laai jou kontrak op</button><br>
+                doc, docx, pdf
+            </div>
+        </div>
+        
+    </div>
+</ons-page>

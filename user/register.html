@@ -1,0 +1,29 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>TERUG</ons-back-button>
+        </div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub" ng-click="showMenu('#navigationSub')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+            <img src="images/lidIcon.png" alt="" />
+        </div>
+        <div class="disBar">
+            <h1>Word 'n lid</h1>
+        </div>
+        <div style="text-align: center">
+            <p>Voltooi die volgende vorm om by Solidariteit aan te sluit.</p>
+            <ons-row><ons-col><input type="text" placeholder="Naam en van" ng-model="data.regName" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="E-Pos" ng-model="data.regEmail" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="number" placeholder="Telefoonnommer" ng-model="data.regTel" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><button class="button submitMe" ng-click="register()" style="margin: 10px 0;">SLUIT AAN</button></ons-col></ons-row>
+        </div>
+    </div>
+</ons-page>

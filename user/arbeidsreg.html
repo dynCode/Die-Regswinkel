@@ -1,0 +1,27 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub1" ng-click="showMenu('#navigationSub1')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <h2 class="sectionTop"><img src="images/arbeidsregIcon-o.png" alt="" /> <div>Arbeidsreg</div></h2>
+        <div style="text-align: center">
+            <button class="button button--large menu1" ng-click="loadArtikelsPosts(1)"><img src="images/artikelsIcon.png" alt="" /> <div>Artikels</div></button>
+            <button class="button button--large menu2" ng-click="loadRegsvraePosts(1)"><img src="images/regsvraeIcon.png" alt="" /> <div><span class="sub25">Regsvrae</span><br /><span class="sub20">wat reeds</span><br /><span class="sub15">beantwoord is</span> </div></button>
+            <button class="button button--large menu3" ng-click="loadParktykPosts(1)"><img src="images/mandaatIcon.png" alt="" /> <div><span class="sub25">Praktykkodes</span></div></button>
+            <button class="button button--large menu4" ng-click="loadwettePosts(1)"><img src="images/wetteIcon.png" alt="" /> <div>Wette</div></button>
+            <button class="button button--large menu1" ng-click="myNavigator.pushPage('user/beroepsPage.html', { animation : 'fade' } )"><img src="images/beroepsIcon.png" alt="" /> <div><span class="sub25">BEROEPS-</span><br /><span class="sub20">GESONDHEID</span><br /><span class="sub15">EN VEILIGHEID</span></div></button>
+        </div>
+    </div>
+</ons-page>

@@ -1,0 +1,27 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub5" ng-click="showMenu('#navigationSub5')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <h2 class="sectionTop"><img src="images/geselsIcon-o.png" alt="" /> <div style="font-size: 20px;">Gesels met ’n regskenner</div></h2>
+        <div style="text-align: center">
+            <ons-row><ons-col><input type="text" placeholder="Naam en van" ng-model="data.geselsName" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="E-posadres" ng-model="data.geselsEmail" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="text" placeholder="Telefoonnommer" ng-model="data.geselsTel" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><textarea placeholder="Boodskap" ng-model="data.geselsSaak" style="width: 80%"></textarea></ons-col></ons-row>
+            <ons-row><ons-col><button class="button submitMe" ng-click="gesels()" style="margin: 10px 0;">STUUR</button></ons-col></ons-row>
+        </div>
+    </div>
+</ons-page>

@@ -1,0 +1,32 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub28" ng-click="showMenu('#navigationSub28')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <button class="button button--large header1"><img src="images/regshulpIcon.png" alt="" /> <div>Resultate:</div></button>
+        <ons-list>
+            <ons-list-item ng-repeat="list in resultlist" class="articleList">
+                <h4 ng-bind-html="list.title"></h4>
+                <img ng-src="{{list.thumbnail}}" class="inlineImg" />
+                <div ng-bind-html="list.excerpt"></div>
+                <button class="button button--large--quiet" ng-click="resultsPosts(list.id)">Lees Meer</button>
+            </ons-list-item>
+        </ons-list>
+        <p>&nbsp;</p>
+        <div style="text-align: center">
+            <a class="button" ng-show="prePage" ng-click="searchFiles(prePageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-left"></i></a> Bl {{pageNum}}/{{pageCount}} <a class="button" ng-show="nextPage" ng-click="searchFiles(nextPageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-right"></i></a>
+        </div>
+    </div>
+</ons-page>

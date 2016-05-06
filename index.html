@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <!-- JS dependencies (order matters!) -->
+        <script src="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places"></script>
+        <script src="js/angular/angular.js"></script>
+        <script src="js/ng-map.min.js"></script>
+        <script src="js/sanitize.js"></script>
+        <script src="js/onsenui.js"></script>
+        <script src="phonegap.js"></script>
+        <script src="js/app.js"></script>         
+
+        <!-- CSS dependencies -->
+        <link rel="stylesheet" href="css/onsenui.css" />
+        <link rel="stylesheet" href="css/onsen-css-components.css" />
+        <link rel="stylesheet" href="css/app.css" />
+
+        <!-- CSP support mode (required for Windows Universal apps) -->
+        <link rel="stylesheet" href="js/angular/angular-csp.css" />
+    </head>
+    <body ng-controller="AppController">   
+        <ons-navigator title="Navigator" var="myNavigator">
+            <ons-page>
+                <div class="pageBody">
+                    <h1 class="siteheader"><img src="images/scaleIcon.png" alt="" height="30" /> DIE REGSWINKEL</h1>
+                    <div style="text-align: center">
+                        <img src="images/userIcon.png" alt="" />
+                    </div>
+                    <div class="disBar">
+                        <h1>Teken aan</h1>
+                    </div>
+                    <div style="text-align: center">
+                        <p>Teken asb. aan met jou Solidariteit Wêreld Profiel om voort te gaan.</p>
+                        <ons-row><ons-col><input type="text" placeholder="Gebruikernaam" ng-model="data.username" style="width: 80%"></ons-col></ons-row>
+                        <ons-row><ons-col><input type="password" placeholder="Wagwoord" ng-model="data.password" style="width: 80%"></ons-col></ons-row>
+                        <ons-row><ons-col><button class="button submitMe" style="margin: 10px 0;"  ng-click="LogIn()">STUUR</button></ons-col></ons-row>                   
+                    </div>
+                    <button class="button button--large--quiet" ng-click="myNavigator.pushPage('recover.html', { animation : 'slide' } )"><img src="images/lockIcon.png" alt="" /> <span>Besonderhede vergeet?</span></button>
+                    <button class="button button--large--quiet" ng-click="myNavigator.pushPage('register.html', { animation : 'slide' } )"><img src="images/newUserIcon.png" alt="" /> <span>Registreer hier.</span></button>
+                </div>
+            </ons-page>
+        </ons-navigator>
+        <ons-modal var="modal" ng-click="modal.hide()">
+            <ons-icon icon="{{data.errorIcon}}" size="40px " spin="{{data.errorIconSpin}}" fixed-width="true"></ons-icon>
+            <br>
+            <br>{{data.errorCode}}
+            <br>
+            
+            
+        </ons-modal>
+        <ons-template id="popover.html">
+            <ons-popover modifier="simple" direction="up down" cancelable style="width: 320px">
+                <div class="menuPopover">
+                    <div style="text-align: right"><a href="" ng-click="logout(); hideMenu('#navigation');" style="color: #fff;"><ons-icon icon="fa fa-lock"></ons-icon> <span style="text-decoration: underline; padding: 5px; font-family: museoSlab500;">Teken uit</span></a></div>
+                    <button class="button button--large smallmenu1" ng-click="myNavigator.pushPage('user/register.html', { animation : 'fade' } ); hideMenu('#navigation')" ng-show="homeText"><img src="images/sluitAanSmlIcon.png" alt="" /> <div>Word 'n lid</div></button>
+                    <button class="button button--large smallmenu2" ng-click="myNavigator.pushPage('user/arbeidsreg.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/regshulpIcon.png" alt="" /> <div>Arbeidsreg</div></button>
+                    <button class="button button--large smallmenu3" ng-click="myNavigator.pushPage('user/alternatiewe-regshulp.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/arbeidsregIcon.png" alt="" /> <div>Alternatiewe regshulp</div></button>
+                    <button class="button button--large smallmenu4" ng-click="myNavigator.pushPage('user/kontakOns.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/kontakSmlIcon.png" alt="" /> <div>Kontak ons</div></button>
+                    <button class="button button--large smallmenu1" ng-click="myNavigator.pushPage('user/meldJouSaak.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/meldSmlIcon.png" alt="" /> <div>Meld jou saak aan</div></button>
+                    <button class="button button--large smallmenu2" ng-click="myNavigator.pushPage('user/geselsMetKenner.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/geselsSmlIcon.png" alt="" /> <div>Gesels met 'n regskenner</div></button>
+                </div>
+            </ons-popover>
+        </ons-template>
+    </body>
+</html>

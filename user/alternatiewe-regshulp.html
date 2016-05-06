@@ -1,0 +1,29 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub2" ng-click="showMenu('#navigationSub2')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <h2 class="sectionTop"><img src="images/regshulpIcon-o.png" alt="" /> <div><small style="font-size: 15px;line-height: 25px;">Alternatiewe</small> regshulp</div></h2>
+        <div style="text-align: center">
+            <!--<button class="button button--large menu1" ng-click="myNavigator.pushPage('user/uifPage.html', { animation : 'fade' } )"><img src="images/uifIcon.png" alt="" /> <div><span class="sub20">UIF-inligting</span></div></button>-->
+            <button class="button button--large menu2" ng-click="myNavigator.pushPage('user/ccmaKantorePage.html', { animation : 'fade' } )"><img src="images/ccmaIcon.png" alt="" /> <div><span class="sub20">CCMA kantore</span></div></button>
+            <button class="button button--large menu3" ng-click="myNavigator.pushPage('user/diensKontrakPage.html', { animation : 'fade' } )"><img src="images/dienskontrakIcon.png" alt="" /> <div><span class="sub20">Dienskontrak</span><br /><span class="sub20">nagaan-diens</span></div></button>
+            <button class="button button--large menu4" ng-click="loadRaPosts(1)"><img src="images/raadIcon.png" alt="" /> <div><span class="sub20">Regstellende Aksie</span></div></button>
+            <button class="button button--large menu1" ng-click="myNavigator.pushPage('user/testamentePage.html', { animation : 'fade' } )"><img src="images/testamentIcon.png" alt="" /> <div><span class="sub25">Testament</span></div></button>
+            <button class="button button--large menu2" ng-click="loadSivieleHulpPosts(1)"><img src="images/siveleIcon.png" alt="" /> <div><span class="sub20">Siviele &</span><br /><span class="sub15">Kriminele</span><br /><span class="sub20">regshulp</span> </div></button>
+            <button class="button button--large menu3" ng-click="loadKontrakPosts(1)"><img src="images/aflaaibaarIcon.png" alt="" /> <div><span class="sub25">Aflaaibare</span><br /><span class="sub25">kontrakte</span></div></button>
+        </div>
+    </div>
+</ons-page>

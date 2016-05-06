@@ -1,0 +1,26 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub6" ng-click="showMenu('#navigationSub6')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div style="height: 100%; width:100%" ng-controller="mapController">
+            <h2 class="sectionTop" style='background-color: #f48120; color: #fff'><img src="images/locationIcon.png" alt="" /> <div style="font-size: 20px;">{{naasteKantoor.title}}</div></h2>
+            <div ng-bind-html="naasteKantoor.infoWindow">{{}}</div>
+            <ng-map default-style="false" center="current-location" zoom="11" style="height: 350px; width:100%">
+                <marker position="current-location" icon="https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/jyMarker.png">
+                </marker>
+                <marker id="{{naasteKantoor.id}}" position="{{naasteKantoor.position}}" icon="{{naasteKantoor.icon}}" centered="true">
+                </marker>
+            </ng-map>
+        </div>
+    </div>
+</ons-page>

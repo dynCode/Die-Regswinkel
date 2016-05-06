@@ -1,0 +1,28 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>TERUG</ons-back-button></div>
+        <div class="center"></div>
+        <div class="right">
+            <span id="navigationSub3" ng-click="showMenu('#navigationSub3')" class="toolbar-button--outline navigation-bar__line-height">
+                <i class="ion-navicon" style="font-size:32px; vertical-align:-6px; color: #000;"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+    <div class="pageBody">
+        <div style="text-align: center">
+            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
+        </div>
+        <div class="searchBar">
+            <input type="text" ng-model="data.searhFile" style="width: 85%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff;"></ons-icon>
+        </div>
+        <h2 class="sectionTop"><img src="images/kontakIcon-o.png" alt="" /> <div>Kontak ons</div></h2>
+        <div style="text-align: center">
+            <button class="button button--large menu1"><img src="images/phoneIcon.png" alt="" /> <div style="font-family: gillSansMt;text-transform: none;"><span class="sub20">Tel.:  012 644 4300<br />Faks: 012 664 6493</span><br /><span class="sub25">0861 25 24 23</span></div></button>
+            <button class="button button--large menu2"><img src="images/atIcon.png" alt="" /> <div style="font-family: gillSansMt;text-transform: none;"><span class="sub20">diens@solidariteit.co.za</span></div></button>
+            <button class="button button--large menu3"><img src="images/huisIcon.png" alt="" /> <div style="font-family: gillSansMt;text-transform: none;"><span class="sub20">H.v. DF Malan en<br />Eendrachtstraat,<br />KLOOFSIG</span></div></button>
+            <button class="button button--large menu4"><img src="images/posIcon.png" alt="" /> <div style="font-family: gillSansMt;text-transform: none;"><span class="sub20">Posbus 11760,<br />Centurion<br />0046</span></div></button>
+            <a class="button button--large menu1" href="https://www.google.co.za/maps/place/Solidariteit+Beweging/@-25.8117079,28.2031072,19z/data=!4m2!3m1!1s0x0000000000000000:0x47eb2bd39cecb22f?hl=en" target="_blank"><img src="images/locationIcon.png" alt="" /> <div style="font-family: gillSansMt;text-transform: none;"><span class="sub20">Klik hier vir die padkaart</span></div></a>
+            <button class="button button--large menu2" ng-click="myNavigator.pushPage('user/dienskantore.html', { animation : 'fade' } );"><img src="images/saIcon.png" alt="" /> <div style="font-family: gillSansMt;text-transform: none;"><span class="sub15">Vir die naaste Solidariteit Dienskantoor, klik hier.</span></div></button>
+        </div>
+    </div>
+</ons-page>
