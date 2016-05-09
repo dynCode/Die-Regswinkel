@@ -24,7 +24,7 @@
         <preference name="prerendered-icon" value="true" />
         <preference name="detect-data-types" value="true" />
         <preference name="exit-on-suspend" value="true" />  
-        
+        <preference name="StatusBarOverlaysWebView" value="false" />
         <!-- iPhone 6 / 6+ -->
         <icon src="res/icons/ios/icon-60@3x.png" width="180" height="180" />
 
@@ -65,6 +65,7 @@
     <platform name="android" >
         <preference name="orientation" value="portrait" />
         <preference name="fullscreen" value="true" />  
+        
         <icon src="res/icons/android/icon-36-ldpi.png" qualifier="ldpi" />
         <icon src="res/icons/android/icon-48-mdpi.png" qualifier="mdpi" />
         <icon src="res/icons/android/icon-72-hdpi.png" qualifier="hdpi" />
@@ -88,6 +89,9 @@
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
     -->
     <plugin name="cordova-plugin-whitelist" />
+    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-splashscreen" />
+    <plugin name="cordova-plugin-inappbrowser" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <true/>
@@ -95,7 +99,7 @@
     <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
         <false/>
     </gap:config-file>
-    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
