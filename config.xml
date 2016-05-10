@@ -92,7 +92,7 @@
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="com.phonegap.plugin.statusbar" />
+    <plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" />
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <true/>
     </gap:config-file>
