@@ -24,7 +24,7 @@
         <preference name="prerendered-icon" value="true" />
         <preference name="detect-data-types" value="true" />
         <preference name="exit-on-suspend" value="true" />  
-        <preference name="StatusBarOverlaysWebView" value="false" />
+        
         <!-- iPhone 6 / 6+ -->
         <icon src="res/icons/ios/icon-60@3x.png" width="180" height="180" />
 
@@ -76,8 +76,8 @@
         <splash src="res/screen/android/screen-xhdpi-portrait.png" qualifier="port-xhdpi" />
     </platform>
     <platform name="winphone" >
-        <preference name="orientation" value="portrait" />
-        <preference name="fullscreen" value="true" />  
+        <preference name="Orientation" value="portrait" />
+        <preference name="Fullscreen" value="true" />  
     </platform>
  
     <feature name="http://api.phonegap.com/1.0/network" />
@@ -92,7 +92,7 @@
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-inappbrowser" />
-    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <plugin name="com.phonegap.plugin.statusbar" />
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <true/>
     </gap:config-file>

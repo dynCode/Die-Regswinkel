@@ -781,7 +781,7 @@
             $http.post(apiPath + 'skrposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.sivieleHulppost.title = data['title'];
                     $scope.sivieleHulppost.content = data['content'];
@@ -1265,6 +1265,7 @@
     });
     
     module.controller('mapController', function($scope, NgMap, $timeout) {
+        console.log("navigator.geolocation works well");
         $scope.diensmap = '';
         $scope.diensKantore = [];
         $scope.naasteKantoor;
@@ -1272,211 +1273,237 @@
         var myMapLat;
         var myMapLng;
         
-        NgMap.getMap().then(function(map) {
-            //console.log('map', map);
-            $scope.diensmap = map;
-            
-            myMapLat = map.getCenter().lat();
-            myMapLng = map.getCenter().lng();
-            
-            console.log('My Lat: '+myMapLat+' My Lng: '+myMapLng);
-            
-            var kontoorID = find_closest_marker(myMapLat,myMapLng);
-        
-            $scope.naasteKantoor = $scope.diensKantore[kontoorID];
-            
-            $timeout(function() {
-                map.panTo(map.markers[1].getPosition());
-            }, 3000);
-        });
-        
-        $scope.diensKantore = [
-            {'id': "0",'position': [-25.8119589,28.204227],'title': 'Pretoria Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>C.o. DF Malan & Eendracht street, Kloofsig<br/>Tel: 012 644 4442/8</p>'},
-            {'id': "1",'position': [-26.243825,28.246799],'title': 'Boksburg Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Rondebultweg 232, Libradene, Boksburg<br/>Tel: 011 913 0783/1101</p>'},
-            {'id': "2",'position': [-26.349375,27.390351],'title': 'Carletonville Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Van Zyl Smit Street 74, Oberholzer, Carletonville<br/>Tel: 018 788 4861/018</p>'},
-            {'id': "3",'position': [-26.713625,27.823556],'title': 'Vaaldriehoek Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Rossini-boulevard 130<br/>Tel: 016 931 3160/2/4</p>'},
-            {'id': "4",'position': [-23.904832,29.454921],'title': 'Pietersburg (Polokwane)','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Biccard Street 79 (3A)<br/>Tel: 015 297 0287</p>'},
-            {'id': "5",'position': [-23.671742,27.741526],'title': 'Ellisras (Lephalale)','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Shop no. 4, Marula Mile Shopping Centre, 35 Louis Botha Road, Ellisras<br/>Tel: 078 802 0343</p>'},
-            {'id': "6",'position': [-25.104892,30.451481],'title': 'Lydenburg','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>  Versekeringsforum Building, cnr Viljoen and Maasdorp Streets, Lydenburg<br/>Tel: 013 235 3698 / 013</p>'},
-            {'id': "7",'position': [-26.493546,29.189292],'title': 'Secunda','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>First Floor, c.o. Joe Slovo- and Moor street, Extension 22, Secunda<br/>Tel: 017 634 5296</p>'},
-            {'id': "8",'position': [-25.888372,29.277138],'title': 'Witbank (EMalahleni)','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Bureau de Paul 2B, Corridor Crescent, Route N4 Business Park, Ben Fleur X11<br/>Tel: 013 656 3871</p>'},
-            {'id': "9",'position': [-26.845627,26.673379],'title': 'Klerksdorp','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Buffelspark, Office 2, Buffeldoorn Avenue 48, Flamwood, Klerksdorp<br/>Tel: 018 468 8539</p>'},
-            {'id': "10",'position': [-25.669640,27.236803],'title': 'Rustenburg','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>C.o. Heystek- en Thabo Mbekistr. Heystek Ontwikkelaars, Kantoor 4, Total Garage, Rustenburg<br/>Tel: 014 592 4336</p>'},
-            {'id': "11",'position': [-27.760639,29.931141],'title': 'Newcastle','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Harding street 79, Sanlampark, Block B, Newcastle<br/>Tel: 034 312 9711/9917</p>'},
-            {'id': "12",'position': [-28.786343,32.092822],'title': 'Richards Bay','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Anglers Rod Street 12, Meerensee<br/>Tel: 035 753 1935/6</p>'},
-            {'id': "13",'position': [-29.109305,26.211369],'title': 'Bloemfontein','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Street address: Kellner Street 58C, Westdene, Bloemfontein<br/>Tel: 51 430 6152/3</p>'},
-            {'id': "14",'position': [-27.979357,26.734328],'title': 'Welkom','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Shop no. 5, First Floor, The Strip, Metro Village, Stateway 312, Welkom<br/>Tel: 057 352 6839</p>'},
-            {'id': "15",'position': [-33.943380,25.560267],'title': 'Port Elizabeth','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>52 Sixth Avenue, Newton Park, Port Elizabeth<br/>Tel: (041)364 3219</p>'},
-            {'id': "16",'position': [-27.697544,23.045171],'title': 'Kathu','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Shop No. 1B, Prosperitas Building, Rietbok Street<br/>Tel: 053 723 1604</p>'},
-            {'id': "17",'position': [-33.898751,18.640014],'title': 'Bellville','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Du Toit Street 18, Bellville<br/>Tel: 021 946 4440/4418</p>'}
-        ];
+        var onSuccess = function(position) {
+            NgMap.getMap().then(function(map) {
+                console.log('map', map);
+                $scope.diensmap = map;
 
-        var markers = [
-            {'lat': -25.8119589,'lng': 28.204227},
-            {'lat': -26.243825,'lng': 28.246799},
-            {'lat': -26.349375,'lng': 27.390351},
-            {'lat': -26.713625,'lng': 27.823556},
-            {'lat': -23.904832,'lng': 29.454921},
-            {'lat': -23.671742,'lng': 27.741526},
-            {'lat': -25.104892,'lng': 30.451481},
-            {'lat': -26.493546,'lng': 29.189292},
-            {'lat': -25.888372,'lng': 29.277138},
-            {'lat': -26.845627,'lng': 26.673379},
-            {'lat': -25.669640,'lng': 27.236803},
-            {'lat': -27.760639,'lng': 29.931141},
-            {'lat': -28.786343,'lng': 32.092822},
-            {'lat': -29.109305,'lng': 26.211369},
-            {'lat': -27.979357,'lng': 26.734328},
-            {'lat': -33.943380,'lng': 25.560267},
-            {'lat': -27.697544,'lng': 23.045171},
-            {'lat': -33.898751,'lng': 18.640014}
-        ];
+                //if (!myMapLat && !myMapLng) {
+                //    myMapLat = map.getCenter().lat();
+                //    myMapLng = map.getCenter().lng();
+                //}
 
-        function find_closest_marker( lat1, lon1 ) {    
-            var pi = Math.PI;
-            var R = 6371; //equatorial radius
-            var distances = [];
-            var closest = -1;
-            var i;
-            
-            
-            for( i=0;i<markers.length; i++ ) {  
-                var lat2 = markers[i].lat;
-                var lon2 = markers[i].lng;
+                myMapLat = position.coords.latitude;
+                myMapLng = position.coords.longitude;
 
-                var chLat = lat2-lat1;
-                var chLon = lon2-lon1;
+                console.log('My Lat: '+myMapLat+' My Lng: '+myMapLng);
 
-                var dLat = chLat*(pi/180);
-                var dLon = chLon*(pi/180);
+                var kontoorID = find_closest_marker(myMapLat,myMapLng);
 
-                var rLat1 = lat1*(pi/180);
-                var rLat2 = lat2*(pi/180);
+                $scope.naasteKantoor = $scope.diensKantore[kontoorID];
 
-                var a = Math.sin(dLat/2) * Math.sin(dLat/2) +  Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(rLat1) * Math.cos(rLat2); 
-                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-                var d = R * c;
+                $timeout(function() {
+                    map.panTo(map.markers[1].getPosition());
+                }, 3000);
+            });
 
-                distances[i] = d;
-                if ( closest === -1 || d < distances[closest] ) {
-                    closest = i;
+            $scope.diensKantore = [
+                {'id': "0",'position': [-25.8119589,28.204227],'title': 'Pretoria Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>C.o. DF Malan & Eendracht street, Kloofsig<br/>Tel: 012 644 4442/8</p>'},
+                {'id': "1",'position': [-26.243825,28.246799],'title': 'Boksburg Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Rondebultweg 232, Libradene, Boksburg<br/>Tel: 011 913 0783/1101</p>'},
+                {'id': "2",'position': [-26.349375,27.390351],'title': 'Carletonville Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Van Zyl Smit Street 74, Oberholzer, Carletonville<br/>Tel: 018 788 4861/018</p>'},
+                {'id': "3",'position': [-26.713625,27.823556],'title': 'Vaaldriehoek Dienskantoor','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Rossini-boulevard 130<br/>Tel: 016 931 3160/2/4</p>'},
+                {'id': "4",'position': [-23.904832,29.454921],'title': 'Pietersburg (Polokwane)','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Biccard Street 79 (3A)<br/>Tel: 015 297 0287</p>'},
+                {'id': "5",'position': [-23.671742,27.741526],'title': 'Ellisras (Lephalale)','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Shop no. 4, Marula Mile Shopping Centre, 35 Louis Botha Road, Ellisras<br/>Tel: 078 802 0343</p>'},
+                {'id': "6",'position': [-25.104892,30.451481],'title': 'Lydenburg','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>  Versekeringsforum Building, cnr Viljoen and Maasdorp Streets, Lydenburg<br/>Tel: 013 235 3698 / 013</p>'},
+                {'id': "7",'position': [-26.493546,29.189292],'title': 'Secunda','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>First Floor, c.o. Joe Slovo- and Moor street, Extension 22, Secunda<br/>Tel: 017 634 5296</p>'},
+                {'id': "8",'position': [-25.888372,29.277138],'title': 'Witbank (EMalahleni)','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Bureau de Paul 2B, Corridor Crescent, Route N4 Business Park, Ben Fleur X11<br/>Tel: 013 656 3871</p>'},
+                {'id': "9",'position': [-26.845627,26.673379],'title': 'Klerksdorp','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Buffelspark, Office 2, Buffeldoorn Avenue 48, Flamwood, Klerksdorp<br/>Tel: 018 468 8539</p>'},
+                {'id': "10",'position': [-25.669640,27.236803],'title': 'Rustenburg','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>C.o. Heystek- en Thabo Mbekistr. Heystek Ontwikkelaars, Kantoor 4, Total Garage, Rustenburg<br/>Tel: 014 592 4336</p>'},
+                {'id': "11",'position': [-27.760639,29.931141],'title': 'Newcastle','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Harding street 79, Sanlampark, Block B, Newcastle<br/>Tel: 034 312 9711/9917</p>'},
+                {'id': "12",'position': [-28.786343,32.092822],'title': 'Richards Bay','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Anglers Rod Street 12, Meerensee<br/>Tel: 035 753 1935/6</p>'},
+                {'id': "13",'position': [-29.109305,26.211369],'title': 'Bloemfontein','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Street address: Kellner Street 58C, Westdene, Bloemfontein<br/>Tel: 51 430 6152/3</p>'},
+                {'id': "14",'position': [-27.979357,26.734328],'title': 'Welkom','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Shop no. 5, First Floor, The Strip, Metro Village, Stateway 312, Welkom<br/>Tel: 057 352 6839</p>'},
+                {'id': "15",'position': [-33.943380,25.560267],'title': 'Port Elizabeth','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>52 Sixth Avenue, Newton Park, Port Elizabeth<br/>Tel: (041)364 3219</p>'},
+                {'id': "16",'position': [-27.697544,23.045171],'title': 'Kathu','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Shop No. 1B, Prosperitas Building, Rietbok Street<br/>Tel: 053 723 1604</p>'},
+                {'id': "17",'position': [-33.898751,18.640014],'title': 'Bellville','icon': 'https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/dienskMarker.png','infoWindow': '<p>Du Toit Street 18, Bellville<br/>Tel: 021 946 4440/4418</p>'}
+            ];
+
+            var markers = [
+                {'lat': -25.8119589,'lng': 28.204227},
+                {'lat': -26.243825,'lng': 28.246799},
+                {'lat': -26.349375,'lng': 27.390351},
+                {'lat': -26.713625,'lng': 27.823556},
+                {'lat': -23.904832,'lng': 29.454921},
+                {'lat': -23.671742,'lng': 27.741526},
+                {'lat': -25.104892,'lng': 30.451481},
+                {'lat': -26.493546,'lng': 29.189292},
+                {'lat': -25.888372,'lng': 29.277138},
+                {'lat': -26.845627,'lng': 26.673379},
+                {'lat': -25.669640,'lng': 27.236803},
+                {'lat': -27.760639,'lng': 29.931141},
+                {'lat': -28.786343,'lng': 32.092822},
+                {'lat': -29.109305,'lng': 26.211369},
+                {'lat': -27.979357,'lng': 26.734328},
+                {'lat': -33.943380,'lng': 25.560267},
+                {'lat': -27.697544,'lng': 23.045171},
+                {'lat': -33.898751,'lng': 18.640014}
+            ];
+
+            function find_closest_marker( lat1, lon1 ) {    
+                var pi = Math.PI;
+                var R = 6371; //equatorial radius
+                var distances = [];
+                var closest = -1;
+                var i;
+
+
+                for( i=0;i<markers.length; i++ ) {  
+                    var lat2 = markers[i].lat;
+                    var lon2 = markers[i].lng;
+
+                    var chLat = lat2-lat1;
+                    var chLon = lon2-lon1;
+
+                    var dLat = chLat*(pi/180);
+                    var dLon = chLon*(pi/180);
+
+                    var rLat1 = lat1*(pi/180);
+                    var rLat2 = lat2*(pi/180);
+
+                    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +  Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(rLat1) * Math.cos(rLat2); 
+                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                    var d = R * c;
+
+                    distances[i] = d;
+                    if ( closest === -1 || d < distances[closest] ) {
+                        closest = i;
+                    }
                 }
-            }
 
-            return closest;
+                return closest;
+            }
+        };
+
+        // onError Callback receives a PositionError object
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
         }
+        
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
     
     module.controller('ccmaController', function($scope, NgMap, $timeout) {
         $scope.ccmamap = '';
         $scope.ccmaKantore = [];
         $scope.ccmaKantoor;
+        console.log("navigator.geolocation works well");
         var vm = this;
         var myMapLat;
         var myMapLng;
         
-        NgMap.getMap().then(function(map) {
-            //console.log('map', map);
-            $scope.ccmamap = map;
-            
-            myMapLat = map.getCenter().lat();
-            myMapLng = map.getCenter().lng();
-            
-            console.log('My Lat: '+myMapLat+' My Lng: '+myMapLng);
-            
-            var kontoorID = find_closest_marker(myMapLat,myMapLng);
-        
-            $scope.ccmaKantoor = $scope.ccmaKantore[kontoorID];
-            
-            $timeout(function() {
-                map.panTo(map.markers[1].getPosition());
-            }, 3000);
-        });
-        
-        $scope.ccmaKantore = [
-            {'id': "0",'position': [-26.206451,28.041316],'title': 'Gauteng (National Office)','infoWindow': '<p>28 Harrison Street, Johannesburg 2001<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "1",'position': [-26.188769,28.318766],'title': 'Gauteng (Ekurhuleni)','infoWindow': '<p>CCMA Place, Cnr Woburn & Rothsay Street, Benoni 1500<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "2",'position': [-26.205826,28.044103],'title': 'Gauteng (Johannesburg)','infoWindow': '<p>CCMA Johannesburg, 127 Fox Street (Cnr. Eloff), Johannesburg 2001<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "3",'position': [-25.748877,28.195876],'title': 'Gauteng (Tshwane (Pretoria))','infoWindow': '<p>Metro Park Building, 351 Francis Baard Street, Pretoria 0001 <br/>Tel: 0861 16 16 16</p>'},
-            {'id': "4",'position': [-26.671171,27.925780],'title': 'Gauteng (Vaal)','infoWindow': '<p>Cnr Kruger Avenue and Edward Street, Vereeniging, 1930<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "5",'position': [-33.021490,27.905665],'title': 'Eastern Cape (East London)','infoWindow': '<p>31 Church Street, East London 5201<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "6",'position': [-33.958732,25.621179],'title': 'Eastern Cape (Port Elizabeth)','infoWindow': '<p>CCMA House, 107 Govan Mbeki Avenue, Port Elizabeth 6001<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "7",'position': [-29.116772,26.220642],'title': 'Free State (Bloemfontein)','infoWindow': '<p>CCMA House, Cnr. Elizabeth & West-Burger Streets, Bloemfontein 9301<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "8",'position': [-27.978149,26.740299],'title': 'Free State (Welkom)','infoWindow': '<p>CCMA House, Phakisa Building, Cnr Ryk and Heeren Street, CBD, Welkom, 9460<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "9",'position': [-29.845172,30.990988],'title': 'Kwazulu Natal (Durban)','infoWindow': '<p>Aquasky Towers, 275 Anton Lembede (Smith Street), Durban 4001 <br/>Tel: 0861 16 16 16</p>'},
-            {'id': "10",'position': [-29.605413,30.377699],'title': 'Kwazulu Natal (Pietermaritzburg)','infoWindow': '<p>CCMA House, 180 Langalibalele Street <br/>Tel: 0861 16 16 16</p>'},
-            {'id': "11",'position': [-30.737003,30.451538],'title': 'Kwazulu Natal (Port Shepstone)','infoWindow': '<p>The Chambers, 68 Nelson Mandela Drive, Port Shepstone 4240<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "12",'position': [-27.758500,29.931117],'title': 'Kwazulu Natal (Newcastle)','infoWindow': '<p>71 Scott Street, Newcastle 2940<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "13",'position': [-28.752731,32.049248],'title': 'Kwazulu Natal (Richards Bay)','infoWindow': '<p>2nd Floor Absa Building, Lakeview  Terrace, 7 Trinidad Parking Area, Richards Bay 3900<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "14",'position': [-23.900800,29.453130],'title': 'Limpopo (Polokwane)','infoWindow': '<p>104 Hans Van Rensburg Street, Polokwane 0699 <br/>Tel: 0861 16 16 16</p>'},
-            {'id': "15",'position': [-25.868257,29.216403],'title': 'Mpumalanga (Witbank)','infoWindow': '<p>CCMA House, 69 Kruger Street, Witbank 1035<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "16",'position': [-25.464036,30.983496],'title': 'Mpumalanga (Nelspruit)','infoWindow': '<p>7th Floor, Sanlam Centre Building, 25 Samora Machel, Nelspruit<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "17",'position': [-28.736043,24.761791],'title': 'Northern Cape (Kimberley)','infoWindow': '<p>CCMA House,5 - 13 Compound Street, Kimberley 8301<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "18",'position': [-26.868387,26.667750],'title': 'North West Province (Klerksdorp)','infoWindow': '<p>47-51 Siddle Street, Klerksdorp 2570<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "19",'position': [-25.669404,27.244385],'title': 'North West Province (Rustenburg)','infoWindow': '<p>1st Floor, Sanlam Centre, 43-45 Boom Street, Old Sanlam Building, Rustenburg <br/>Tel: 0861 16 16 16</p>'},
-            {'id': "20",'position': [-33.927046,18.426174],'title': 'Western Cape (Cape Town)','infoWindow': '<p>CCMA House, 78 Darling Street, Cape Town 8001<br/>Tel: 0861 16 16 16</p>'},
-            {'id': "21",'position': [-33.957662,22.459442],'title': 'Western Cape (George)','infoWindow': '<p>62 Cathedral Street, Cathedral Square 2, George, 6529<br/>Tel: 0861 16 16 16</p>'}
-        ];
+        var onSuccess = function(position) {
+            NgMap.getMap().then(function(map) {
+                //console.log('map', map);
+                $scope.ccmamap = map;
 
-        var markers = [
-            {'lat': -26.206451,'lng': 28.041316},
-            {'lat': -26.188769,'lng': 28.318766},
-            {'lat': -26.205826,'lng': 28.044103},
-            {'lat': -25.748877,'lng': 28.195876},
-            {'lat': -26.671171,'lng': 27.925780},
-            {'lat': -33.021490,'lng': 27.905665},
-            {'lat': -33.958732,'lng': 25.621179},
-            {'lat': -29.116772,'lng': 26.220642},
-            {'lat': -27.978149,'lng': 26.740299},
-            {'lat': -29.845172,'lng': 30.990988},
-            {'lat': -29.605413,'lng': 30.377699},
-            {'lat': -30.737003,'lng': 30.451538},
-            {'lat': -27.758500,'lng': 29.931117},
-            {'lat': -28.752731,'lng': 32.049248},
-            {'lat': -23.900800,'lng': 29.453130},
-            {'lat': -25.868257,'lng': 29.216403},
-            {'lat': -25.464036,'lng': 30.983496},
-            {'lat': -28.736043,'lng': 24.761791},
-            {'lat': -26.868387,'lng': 26.667750},
-            {'lat': -25.669404,'lng': 27.244385},
-            {'lat': -33.927046,'lng': 18.426174},
-            {'lat': -33.957662,'lng': 22.459442}
-        ];
+                myMapLat = position.coords.latitude;
+                myMapLng = position.coords.longitude;
 
-        function find_closest_marker( lat1, lon1 ) {    
-            var pi = Math.PI;
-            var R = 6371; //equatorial radius
-            var distances = [];
-            var closest = -1;
-            var i;
-            
-            
-            for( i=0;i<markers.length; i++ ) {  
-                var lat2 = markers[i].lat;
-                var lon2 = markers[i].lng;
+                console.log('My Lat: '+myMapLat+' My Lng: '+myMapLng);
 
-                var chLat = lat2-lat1;
-                var chLon = lon2-lon1;
+                var kontoorID = find_closest_marker(myMapLat,myMapLng);
 
-                var dLat = chLat*(pi/180);
-                var dLon = chLon*(pi/180);
+                $scope.ccmaKantoor = $scope.ccmaKantore[kontoorID];
 
-                var rLat1 = lat1*(pi/180);
-                var rLat2 = lat2*(pi/180);
+                $timeout(function() {
+                    map.panTo(map.markers[1].getPosition());
+                }, 3000);
+            });
 
-                var a = Math.sin(dLat/2) * Math.sin(dLat/2) +  Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(rLat1) * Math.cos(rLat2); 
-                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-                var d = R * c;
+            $scope.ccmaKantore = [
+                {'id': "0",'position': [-26.206451,28.041316],'title': 'Gauteng (National Office)','infoWindow': '<p>28 Harrison Street, Johannesburg 2001<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "1",'position': [-26.188769,28.318766],'title': 'Gauteng (Ekurhuleni)','infoWindow': '<p>CCMA Place, Cnr Woburn & Rothsay Street, Benoni 1500<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "2",'position': [-26.205826,28.044103],'title': 'Gauteng (Johannesburg)','infoWindow': '<p>CCMA Johannesburg, 127 Fox Street (Cnr. Eloff), Johannesburg 2001<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "3",'position': [-25.748877,28.195876],'title': 'Gauteng (Tshwane (Pretoria))','infoWindow': '<p>Metro Park Building, 351 Francis Baard Street, Pretoria 0001 <br/>Tel: 0861 16 16 16</p>'},
+                {'id': "4",'position': [-26.671171,27.925780],'title': 'Gauteng (Vaal)','infoWindow': '<p>Cnr Kruger Avenue and Edward Street, Vereeniging, 1930<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "5",'position': [-33.021490,27.905665],'title': 'Eastern Cape (East London)','infoWindow': '<p>31 Church Street, East London 5201<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "6",'position': [-33.958732,25.621179],'title': 'Eastern Cape (Port Elizabeth)','infoWindow': '<p>CCMA House, 107 Govan Mbeki Avenue, Port Elizabeth 6001<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "7",'position': [-29.116772,26.220642],'title': 'Free State (Bloemfontein)','infoWindow': '<p>CCMA House, Cnr. Elizabeth & West-Burger Streets, Bloemfontein 9301<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "8",'position': [-27.978149,26.740299],'title': 'Free State (Welkom)','infoWindow': '<p>CCMA House, Phakisa Building, Cnr Ryk and Heeren Street, CBD, Welkom, 9460<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "9",'position': [-29.845172,30.990988],'title': 'Kwazulu Natal (Durban)','infoWindow': '<p>Aquasky Towers, 275 Anton Lembede (Smith Street), Durban 4001 <br/>Tel: 0861 16 16 16</p>'},
+                {'id': "10",'position': [-29.605413,30.377699],'title': 'Kwazulu Natal (Pietermaritzburg)','infoWindow': '<p>CCMA House, 180 Langalibalele Street <br/>Tel: 0861 16 16 16</p>'},
+                {'id': "11",'position': [-30.737003,30.451538],'title': 'Kwazulu Natal (Port Shepstone)','infoWindow': '<p>The Chambers, 68 Nelson Mandela Drive, Port Shepstone 4240<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "12",'position': [-27.758500,29.931117],'title': 'Kwazulu Natal (Newcastle)','infoWindow': '<p>71 Scott Street, Newcastle 2940<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "13",'position': [-28.752731,32.049248],'title': 'Kwazulu Natal (Richards Bay)','infoWindow': '<p>2nd Floor Absa Building, Lakeview  Terrace, 7 Trinidad Parking Area, Richards Bay 3900<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "14",'position': [-23.900800,29.453130],'title': 'Limpopo (Polokwane)','infoWindow': '<p>104 Hans Van Rensburg Street, Polokwane 0699 <br/>Tel: 0861 16 16 16</p>'},
+                {'id': "15",'position': [-25.868257,29.216403],'title': 'Mpumalanga (Witbank)','infoWindow': '<p>CCMA House, 69 Kruger Street, Witbank 1035<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "16",'position': [-25.464036,30.983496],'title': 'Mpumalanga (Nelspruit)','infoWindow': '<p>7th Floor, Sanlam Centre Building, 25 Samora Machel, Nelspruit<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "17",'position': [-28.736043,24.761791],'title': 'Northern Cape (Kimberley)','infoWindow': '<p>CCMA House,5 - 13 Compound Street, Kimberley 8301<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "18",'position': [-26.868387,26.667750],'title': 'North West Province (Klerksdorp)','infoWindow': '<p>47-51 Siddle Street, Klerksdorp 2570<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "19",'position': [-25.669404,27.244385],'title': 'North West Province (Rustenburg)','infoWindow': '<p>1st Floor, Sanlam Centre, 43-45 Boom Street, Old Sanlam Building, Rustenburg <br/>Tel: 0861 16 16 16</p>'},
+                {'id': "20",'position': [-33.927046,18.426174],'title': 'Western Cape (Cape Town)','infoWindow': '<p>CCMA House, 78 Darling Street, Cape Town 8001<br/>Tel: 0861 16 16 16</p>'},
+                {'id': "21",'position': [-33.957662,22.459442],'title': 'Western Cape (George)','infoWindow': '<p>62 Cathedral Street, Cathedral Square 2, George, 6529<br/>Tel: 0861 16 16 16</p>'}
+            ];
 
-                distances[i] = d;
-                if ( closest === -1 || d < distances[closest] ) {
-                    closest = i;
+            var markers = [
+                {'lat': -26.206451,'lng': 28.041316},
+                {'lat': -26.188769,'lng': 28.318766},
+                {'lat': -26.205826,'lng': 28.044103},
+                {'lat': -25.748877,'lng': 28.195876},
+                {'lat': -26.671171,'lng': 27.925780},
+                {'lat': -33.021490,'lng': 27.905665},
+                {'lat': -33.958732,'lng': 25.621179},
+                {'lat': -29.116772,'lng': 26.220642},
+                {'lat': -27.978149,'lng': 26.740299},
+                {'lat': -29.845172,'lng': 30.990988},
+                {'lat': -29.605413,'lng': 30.377699},
+                {'lat': -30.737003,'lng': 30.451538},
+                {'lat': -27.758500,'lng': 29.931117},
+                {'lat': -28.752731,'lng': 32.049248},
+                {'lat': -23.900800,'lng': 29.453130},
+                {'lat': -25.868257,'lng': 29.216403},
+                {'lat': -25.464036,'lng': 30.983496},
+                {'lat': -28.736043,'lng': 24.761791},
+                {'lat': -26.868387,'lng': 26.667750},
+                {'lat': -25.669404,'lng': 27.244385},
+                {'lat': -33.927046,'lng': 18.426174},
+                {'lat': -33.957662,'lng': 22.459442}
+            ];
+
+            function find_closest_marker( lat1, lon1 ) {    
+                var pi = Math.PI;
+                var R = 6371; //equatorial radius
+                var distances = [];
+                var closest = -1;
+                var i;
+
+
+                for( i=0;i<markers.length; i++ ) {  
+                    var lat2 = markers[i].lat;
+                    var lon2 = markers[i].lng;
+
+                    var chLat = lat2-lat1;
+                    var chLon = lon2-lon1;
+
+                    var dLat = chLat*(pi/180);
+                    var dLon = chLon*(pi/180);
+
+                    var rLat1 = lat1*(pi/180);
+                    var rLat2 = lat2*(pi/180);
+
+                    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +  Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(rLat1) * Math.cos(rLat2); 
+                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                    var d = R * c;
+
+                    distances[i] = d;
+                    if ( closest === -1 || d < distances[closest] ) {
+                        closest = i;
+                    }
                 }
-            }
 
-            return closest;
+                return closest;
+            }
+        };
+
+        // onError Callback receives a PositionError object
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
         }
 
-        
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
 })();
