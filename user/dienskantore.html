@@ -14,7 +14,8 @@
         </div>
         <div style="height: 100%; width:100%" ng-controller="mapController">
             <h2 class="sectionTop" style='background-color: #f48120; color: #fff'><img src="images/locationIcon.png" alt="" /> <div style="font-size: 20px;">{{naasteKantoor.title}}</div></h2>
-            <div ng-bind-html="naasteKantoor.infoWindow">{{}}</div>
+            <div ng-bind-html="naasteKantoor.infoWindow"></div>
+            <div ng-bind-html="naasteKantoor.mapLink | externalLinks | to_trusted"></div>
             <ng-map default-style="false" center="current-location" zoom="11" style="height: 350px; width:100%">
                 <marker position="current-location" icon="https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/jyMarker.png">
                 </marker>

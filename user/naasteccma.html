@@ -16,7 +16,8 @@
         
         <div style="height: 100%; width:100%" ng-controller="ccmaController">
             <h4><i class="fa fa-map-marker"></i> {{ccmaKantoor.title}}</h4>
-            <div ng-bind-html="ccmaKantoor.infoWindow">{{}}</div>
+            <div ng-bind-html="ccmaKantoor.infoWindow"></div>
+            <div ng-bind-html="ccmaKantoor.mapLink | externalLinks | to_trusted"></div>
             <ng-map default-style="false" center="current-location" zoom="11" style="height: 350px; width:100%">
                 <marker position="current-location" icon="https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/jyMarker.png">
                 </marker>
