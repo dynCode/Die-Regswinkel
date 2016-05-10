@@ -21,6 +21,24 @@
         };
     }]);
 
+    module.filter('externalLinks', function() {
+        return function(text) {
+            //return String(text).replace(/href=/gm, "class=\"ex-link\" href=");
+            //return String(text).replace(/href=/gm, "ng-click=\"exLink()\" href=");
+            //
+            // NOTE:
+            // can't use ng-click as it is not in Angular Land as $sce and ng-bind-html
+            // ALSO - must do filters in this order 'content | externalLinks | to_trusted'
+            //        so this string stays in content
+            return String(text).replace(/href=/gm, "onclick=\"angular.element(this).scope().exLink(this);return false\" href=");
+        };
+    });
+
+    module.filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]);
 
     module.controller('AppController', function ($scope, $http, $window, $timeout) {
         $scope.data = [];
@@ -78,8 +96,62 @@
         $scope.prePage = false;
         $scope.prePageNum = '';
         
+        $scope.init = function() {
+            var user = $window.localStorage.getItem('username'); 
+            var pass = $window.localStorage.getItem('password'); 
+            
+            if (user && pass) {
+                modal.show();
+                $scope.data.errorIcon = 'refresh';
+                $scope.data.errorIconSpin = 'true';
+                $scope.data.errorCode = '';
+                $http.post(apiPath + 'lookup.php', {"llookup" : "yes", "username" : user, "password" : pass})
+                .success(function(data, status){
+                    if (data['loginValid'] === 'yes') {
+                        $scope.username = user;
+                        $scope.password = pass;
+                        $scope.user_active = data['active'];
+                        $scope.login_valid = data['loginValid'];
+                        
+                        if (data['active'] === 'yes') {
+                            $scope.homeText = false;
+                        }
+                        
+                        $window.localStorage.setItem('username',user); 
+                        $window.localStorage.setItem('password',pass); 
+                        $window.localStorage.setItem('user_active',data['active']);
+                        
+                        modal.hide();
+                        myNavigator.pushPage('user/home.html', { animation : 'fade' });
+                        
+                    } else {
+                        $scope.data.errorIconSpin = 'false';
+                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
+                        modal.show();
+                    }
+                })
+                .error(function(data, status) {
+                    $scope.data.errorIconSpin = 'false';
+                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
+                    modal.show();
+                });
+            } else {
+                $scope.data.errorIconSpin = 'false';
+                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
+                modal.show();
+            }
+        }
+        
+        $timeout($scope.init, 1000);
+        
         // process logout
         $scope.logout = function() {
+            $window.localStorage.removeItem('username'); 
+            $window.localStorage.removeItem('password'); 
+            $window.localStorage.removeItem('user_active');
             myNavigator.pushPage('index.html', { animation : 'fade' });
         };
         
@@ -104,6 +176,10 @@
                         if (data['active'] === 'yes') {
                             $scope.homeText = false;
                         }
+                        
+                        $window.localStorage.setItem('username',user); 
+                        $window.localStorage.setItem('password',pass); 
+                        $window.localStorage.setItem('user_active',data['active']);
                         
                         modal.hide();
                         myNavigator.pushPage('user/home.html', { animation : 'fade' });
@@ -412,7 +488,7 @@
             $http.post(apiPath + 'raposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.rapost.title = data['title'];
                     $scope.rapost.content = data['content'];
@@ -495,7 +571,7 @@
             $http.post(apiPath + 'aposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.artikelspost.title = data['title'];
                     $scope.artikelspost.content = data['content'];
@@ -576,7 +652,7 @@
             $http.post(apiPath + 'brposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.regsvraepost.title = data['title'];
                     $scope.regsvraepost.content = data['content'];
@@ -655,7 +731,7 @@
             $http.post(apiPath + 'pkposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.praktykpost.title = data['title'];
                     $scope.praktykpost.content = data['content'];
@@ -861,7 +937,7 @@
             $http.post(apiPath + 'akposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.kontrakpost.title = data['title'];
                     $scope.kontrakpost.content = data['content'];
@@ -1045,7 +1121,7 @@
             $http.post(apiPath + 'wposts.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.wettepost.title = data['title'];
                     $scope.wettepost.content = data['content'];
@@ -1137,7 +1213,7 @@
             $http.post(apiPath + 'search.php', {"getpost" : postId})
             .success(function(data, status){
                 console.log(data);
-                if (status === 200) {
+                if (status === 200 && data) {
                     modal.hide();
                     $scope.resultpost.title = data['title'];
                     $scope.resultpost.content = data['content'];
@@ -1261,6 +1337,12 @@
         
         $scope.hideMenu = function(e) {
             $scope.popover.hide(e);
+        };
+        
+        // external links on dynamic content
+        $scope.exLink = function (link){
+            var url = link.href;
+            window.open(encodeURI(url), '_system', 'location=yes');
         };
     });
     

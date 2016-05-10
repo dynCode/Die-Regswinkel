@@ -19,7 +19,7 @@
         <ons-list>
             <ons-list-item  class="articleList">
                 <h4 ng-bind-html="rapost.title"></h4>
-                <div ng-bind-html="rapost.content"></div>
+                <div ng-bind-html="rapost.content | externalLinks | to_trusted"></div>
             </ons-list-item>    
         </ons-list>
     </div>
