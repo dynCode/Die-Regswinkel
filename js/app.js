@@ -137,12 +137,7 @@
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
-            } else {
-                $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
-                $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
-                modal.show();
-            }
+            } 
         }
         
         $timeout($scope.init, 1000);
