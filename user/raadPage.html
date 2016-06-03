@@ -19,7 +19,7 @@
         <ons-list>
             <ons-list-item ng-repeat="ra in ralist" class="articleList">
                 <h4 ng-bind-html="ra.title"></h4>
-                <img ng-src="{{ra.thumbnail}}" class="inlineImg" />
+                <img ng-src="{{ra.thumbnail || 'images/jy-en-die-reg.png'}}" class="inlineImg" />
                 <div ng-bind-html="ra.excerpt"></div>
                 <button class="button button--large--quiet" ng-click="raPost(ra.id)">Lees Meer</button>
             </ons-list-item>

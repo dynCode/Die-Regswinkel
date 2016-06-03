@@ -147,7 +147,7 @@
             $window.localStorage.removeItem('username'); 
             $window.localStorage.removeItem('password'); 
             $window.localStorage.removeItem('user_active');
-            myNavigator.pushPage('index.html', { animation : 'fade' });
+            myNavigator.resetToPage('index.html', { animation : 'fade' });
         };
         
         // process login
@@ -163,6 +163,8 @@
                 $http.post(apiPath + 'lookup.php', {"llookup" : "yes", "username" : user, "password" : pass})
                 .success(function(data, status){
                     if (data['loginValid'] === 'yes') {
+                        $scope.data.username = '';
+                        $scope.data.password = '';
                         $scope.username = user;
                         $scope.password = pass;
                         $scope.user_active = data['active'];
@@ -1160,6 +1162,7 @@
                 .success(function(data, status){
                     if (status === 200) {
                         modal.hide();
+                        $scope.data.searhFile = '';
                         $scope.resultlist = data['posts'];
                         $scope.pageNum = pageNum;
                         $scope.pageCount = data['pages'];
@@ -1454,8 +1457,10 @@
         // onError Callback receives a PositionError object
         //
         function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
+            $scope.data.errorIconSpin = 'false';
+            $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+            $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
+            modal.show();
         }
         
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -1577,8 +1582,10 @@
         // onError Callback receives a PositionError object
         //
         function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
+            $scope.data.errorIconSpin = 'false';
+            $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+            $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
+            modal.show();
         }
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError);

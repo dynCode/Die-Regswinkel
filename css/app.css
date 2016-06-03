@@ -53,6 +53,16 @@ input, textarea {
     border: 1px solid rgba(244,129,32,0.81);
 }
 
+.radio-button > .radio-button__checkmark:before {
+    border: 1px solid rgba(244,129,32,0.81);
+}
+
+.radio-button > input[type="radio"]:checked + .radio-button__checkmark:before {
+    background: rgba(244,129,32,0.81);
+    border: 1px solid rgba(244,129,32,0.81);
+    color: #fff;
+}
+
 .submitMe {
     font-family: GillSans_1, sans-serif;
     background-color: #f48120;
@@ -392,6 +402,7 @@ a {
     float: left;
     width: 40%;
     padding-right: 5px;
+    background-image: url('images/jy-en-die-reg.png');
 }
 
 .greyBut {
@@ -405,4 +416,46 @@ a {
 
 .the_champ_sharing_container {
     display: none;
+}
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait and Landscape */
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+    .menu1 div, .menu2 div, .menu3 div, .menu4 div {
+        font-size: 20px;
+    }
+        
+    .createAcc {
+        position: relative;
+    }
+        
+    .sub25 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    
+    .sub20 {
+        font-size: 15px;
+        line-height: 15px;
+    }
+    
+    .header1 div, .header2 div, .header3 div, .header4 div {
+        font-size: 15px;
+        line-height: 15px;
+    }
+    
+    input, textarea {
+        margin: 2px;
+    }
+    
+    .sectionTop div {
+        font-size: 20px;
+    }
+    
+    .inlineImg {
+        float: none;
+    }
 }

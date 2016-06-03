@@ -25,7 +25,7 @@
     </head>
     <body ng-controller="AppController">   
         <ons-navigator title="Navigator" var="myNavigator">
-            <ons-page>
+            <ons-page ng-device-backbutton="disableDeviceBackButtonHandler()">
                 <div class="pageBody" ng-init="init()">
                     <h1 class="siteheader"><img src="images/scaleIcon.png" alt="" height="30" /> DIE REGSWINKEL</h1>
                     <div style="text-align: center">
