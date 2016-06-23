@@ -767,7 +767,7 @@
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa fa-thumbs-up';
-                        $scope.data.errorCode = 'Dankie, ons sal u kontak met verdere besonderhede.';
+                        $scope.data.errorCode = 'Baie dankie vir u navraag. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
                             modal.hide();
@@ -974,7 +974,7 @@
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa fa-thumbs-up';
-                        $scope.data.errorCode = 'Dankie, ons sal u kontak met verdere besonderhede.';
+                        $scope.data.errorCode = 'Baie dankie vir u navraag. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
                             modal.hide();
@@ -1037,7 +1037,7 @@
                 if (data['result'] === 'success') {
                     $scope.data.errorIconSpin = 'false';
                     $scope.data.errorIcon = 'fa fa-thumbs-up';
-                    $scope.data.errorCode = 'Dankie, ons sal u kontak met verdere besonderhede.';
+                    $scope.data.errorCode = 'Ons het u dienskontrak ontvang. Solidariteit sal u binnekort skakel.';
                     modal.show();
                     $timeout(function(){
                         modal.hide();
@@ -1295,7 +1295,7 @@
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa fa-thumbs-up';
-                        $scope.data.errorCode = 'Dankie, ons sal u kontak met verdere besonderhede.';
+                        $scope.data.errorCode = 'Baie dankie dat u die vorm ingevul het. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
                             modal.hide();
