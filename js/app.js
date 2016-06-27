@@ -2,7 +2,7 @@
 (function(){
     'use strict';
 
-    var module = angular.module('app', ['onsen', 'ngMap', 'ngSanitize']);
+    var module = angular.module('app', ['onsen', 'ngMap', 'ngSanitize', 'ngCordova']);
 
     // form file directive (Assist with file uploads)
     module.directive('fileModel', ['$parse', function ($parse) {
@@ -40,7 +40,7 @@
         };
     }]);
 
-    module.controller('AppController', function ($scope, $http, $window, $timeout) {
+    module.controller('AppController', function ($scope, $http, $window, $timeout, $cordovaSocialSharing) {
         $scope.data = [];
         
         //API URL path
@@ -1359,6 +1359,40 @@
             var url = link.href;
             window.open(encodeURI(url), '_system', 'location=yes');
         };
+        
+        //Social Sharing
+        $cordovaSocialSharing
+            .shareViaTwitter(message, image, link)
+            .then(function(result) {
+              // Success!
+            }, function(err) {
+              // An error occurred. Show a message to the user
+        });
+
+        $cordovaSocialSharing
+            .shareViaWhatsApp(message, image, link)
+            .then(function(result) {
+              // Success!
+            }, function(err) {
+              // An error occurred. Show a message to the user
+        });
+
+        $cordovaSocialSharing
+            .shareViaFacebook(message, image, link)
+            .then(function(result) {
+              // Success!
+            }, function(err) {
+              // An error occurred. Show a message to the user
+        });
+
+        // toArr, ccArr and bccArr must be an array, file can be either null, string or array
+        $cordovaSocialSharing
+            .shareViaEmail(message, subject, toArr, ccArr, bccArr, file)
+            .then(function(result) {
+              // Success!
+            }, function(err) {
+              // An error occurred. Show a message to the user
+        });
     });
     
     module.controller('mapController', function($scope, NgMap, $timeout) {
