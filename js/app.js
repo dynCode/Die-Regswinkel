@@ -265,14 +265,14 @@
                         
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
                         modal.show();
                     }
                 })
                 .error(function(data, status) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
@@ -322,20 +322,20 @@
                         
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
                         modal.show();
                     }
                 })
                 .error(function(data, status) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
                 modal.show();
             }
@@ -354,7 +354,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = '\'n E-pos is aan u gestuur oor hoe om u besonderhede te herwin.';
                         modal.show();
                         $timeout(function(){
@@ -363,20 +363,20 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie u besonderhede herwin nie, probeer asb. weer...';
                         modal.show();
                     }
                 })
                 .error(function(data, status) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'U moet u e-pos adres invul.';
                 modal.show();
             }
@@ -398,7 +398,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie vir jou registrasie hou jou epos dop vir jou aktiverings-skakel';
                         modal.show();
                         $timeout(function(){
@@ -407,7 +407,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Jou registrasie was onsuksesvol, kontak asb. elektronies@solidariteit.co.za vir bystand';
                         modal.show();
                     }
@@ -416,13 +416,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -443,7 +443,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie dat u wil aansluit, ons sal u kontak met verdere besonderhede.';
                         modal.show();
                         $timeout(function(){
@@ -452,7 +452,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon u nie aansluit nie, probeer asb. weer...';
                         modal.show();
                     }
@@ -461,13 +461,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -489,7 +489,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie, u saak is aan gemeld.';
                         modal.show();
                         $timeout(function(){
@@ -498,7 +498,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie u saak aan meld nie, probeer asb. weer...';
                         modal.show();
                     }
@@ -507,13 +507,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -535,7 +535,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie, u boodskap is gestuur.';
                         modal.show();
                         $timeout(function(){
@@ -544,7 +544,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie u boodskap stuur nie, probeer asb. weer...';
                         modal.show();
                     }
@@ -553,13 +553,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -599,7 +599,7 @@
                     myNavigator.pushPage('user/raadPage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -608,7 +608,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -633,7 +633,7 @@
                     myNavigator.pushPage('user/raadPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -642,7 +642,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -684,7 +684,7 @@
                     myNavigator.pushPage('user/artikelsPage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -693,7 +693,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -718,7 +718,7 @@
                     myNavigator.pushPage('user/artikelsPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -727,7 +727,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -767,7 +767,7 @@
                     myNavigator.pushPage('user/regsvraePage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -776,7 +776,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -801,7 +801,7 @@
                     myNavigator.pushPage('user/regsvraePost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -810,7 +810,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -848,7 +848,7 @@
                     myNavigator.pushPage('user/praktykPage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -857,7 +857,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -882,7 +882,7 @@
                     myNavigator.pushPage('user/praktykPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -891,7 +891,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -913,7 +913,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Baie dankie vir u navraag. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
@@ -922,7 +922,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie die versoek voltooi nie, probeer asb. weer...';
                         modal.show();
                     }
@@ -931,13 +931,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -976,7 +976,7 @@
                     myNavigator.pushPage('user/sivieleHulpPage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -985,7 +985,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1010,7 +1010,7 @@
                     myNavigator.pushPage('user/sivieleHulpPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1019,7 +1019,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1058,7 +1058,7 @@
                     myNavigator.pushPage('user/kontrakDownloadsPage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1067,7 +1067,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1092,7 +1092,7 @@
                     myNavigator.pushPage('user/kontrakDownloadsPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1101,7 +1101,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1124,7 +1124,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Baie dankie vir u navraag. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
@@ -1133,7 +1133,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie die versoek voltooi nie, probeer asb. weer...';
                         modal.show();
                     }
@@ -1142,13 +1142,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -1187,7 +1187,7 @@
             .success(function(data) {
                 if (data['result'] === 'success') {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-thumbs-up';
+                    $scope.data.errorIcon = 'fa-thumbs-up';
                     $scope.data.errorCode = 'Ons het u dienskontrak ontvang. Solidariteit sal u binnekort skakel.';
                     modal.show();
                     $timeout(function(){
@@ -1196,7 +1196,7 @@
                     },'2000');
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die versoek voltooi nie, probeer asb. weer...';
                     modal.show();
                 }
@@ -1205,7 +1205,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1244,7 +1244,7 @@
                     myNavigator.pushPage('user/wettePage.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1253,7 +1253,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1278,7 +1278,7 @@
                     myNavigator.pushPage('user/wettePost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1287,7 +1287,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1333,7 +1333,7 @@
                         myNavigator.pushPage('user/resultsPage.html', { animation : 'fade' });
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                         modal.show();
                     }
@@ -1342,13 +1342,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb die soek term in.';
                 modal.show();
             }
@@ -1373,7 +1373,7 @@
                     myNavigator.pushPage('user/resultsPosts.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1382,7 +1382,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1401,7 +1401,7 @@
                     modal.hide();
                 } else {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Ons kon nie die bladsy laai nie.';
                     modal.show();
                 }
@@ -1410,7 +1410,7 @@
                 console.log(data);
                 console.log(status);
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                 modal.show();
             });
@@ -1449,7 +1449,7 @@
                 .success(function(data, status){
                     if (data['result'] === 'success') {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-thumbs-up';
+                        $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Baie dankie dat u die vorm ingevul het. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
@@ -1459,7 +1459,7 @@
                         },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                        $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon nie die versoek voltooi nie, probeer asb. weer...';
                         modal.show();
                     }
@@ -1468,13 +1468,13 @@
                     console.log(data);
                     console.log(status);
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
                 });
             } else {
                 $scope.data.errorIconSpin = 'false';
-                $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                $scope.data.errorIcon = 'fa-exclamation-triangle';
                 $scope.data.errorCode = 'Vul asb al die velde in.';
                 modal.show();
             }
@@ -1507,7 +1507,7 @@
                   // Success!
                 }, function(err) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Kon nie die arikel deel nie.';
                     modal.show();
             });
@@ -1520,7 +1520,7 @@
                   // Success!
                 }, function(err) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Kon nie die arikel deel nie.';
                     modal.show();
             });
@@ -1533,7 +1533,7 @@
                   // Success!
                 }, function(err) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Kon nie die arikel deel nie.';
                     modal.show();
             });
@@ -1546,7 +1546,7 @@
                   // Success!
                 }, function(err) {
                     $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Kon nie die arikel deel nie.';
                     modal.show();
             });
@@ -1579,6 +1579,17 @@
 
                 myMapLat = position.coords.latitude;
                 myMapLng = position.coords.longitude;
+                
+                if (!myMapLat && !myMapLng) {
+                    $scope.data.errorIconSpin = 'false';
+                    $scope.data.errorIcon = 'fa-exclamation-triangle';
+                    $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
+                    modal.show();
+                    $timeout(function(){
+                        modal.hide();
+                        myNavigator.popPage();
+                    },'2000');
+                }
 
                 console.log('My Lat: '+myMapLat+' My Lng: '+myMapLng);
 
@@ -1670,9 +1681,12 @@
 
         // onError Callback receives a PositionError object
         //
-        function onError(error) {
-            alert('GPS dienste is afgeskakel. Skakel dit asb aan.');
-        }
+        var onError = function(error) {
+            $scope.data.errorIconSpin = 'false';
+            $scope.data.errorIcon = 'fa-exclamation-triangle';
+            $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
+            modal.show();
+        };
         
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
@@ -1683,7 +1697,6 @@
         $scope.ccmamap = '';
         $scope.ccmaKantore = [];
         $scope.ccmaKantoor;
-        console.log("navigator.geolocation works well");
         var vm = this;
         var myMapLat;
         var myMapLng;
