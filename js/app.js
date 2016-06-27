@@ -1506,17 +1506,23 @@
                 .then(function(result) {
                   // Success!
                 }, function(err) {
-                  // An error occurred. Show a message to the user
+                    $scope.data.errorIconSpin = 'false';
+                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorCode = 'Kon nie die arikel deel nie.';
+                    modal.show();
             });
         }
         
-        $scope.shareViaTwitter = function(message, image, link) {
+        $scope.shareViaWhatsApp = function(message, image, link) {
             $cordovaSocialSharing
                 .shareViaWhatsApp(message, image, link)
                 .then(function(result) {
                   // Success!
                 }, function(err) {
-                  // An error occurred. Show a message to the user
+                    $scope.data.errorIconSpin = 'false';
+                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorCode = 'Kon nie die arikel deel nie.';
+                    modal.show();
             });
         }
         
@@ -1526,17 +1532,23 @@
                 .then(function(result) {
                   // Success!
                 }, function(err) {
-                  // An error occurred. Show a message to the user
+                    $scope.data.errorIconSpin = 'false';
+                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorCode = 'Kon nie die arikel deel nie.';
+                    modal.show();
             });
         }
 
-        $scope.shareViaFacebook = function(message, subject, toArr, ccArr, bccArr, file) {
+        $scope.shareViaEmail = function(message, subject, toArr, ccArr, bccArr, file) {
             $cordovaSocialSharing
                 .shareViaEmail(message, subject, toArr, ccArr, bccArr, file)
                 .then(function(result) {
                   // Success!
                 }, function(err) {
-                  // An error occurred. Show a message to the user
+                    $scope.data.errorIconSpin = 'false';
+                    $scope.data.errorIcon = 'fa fa-exclamation-triangle';
+                    $scope.data.errorCode = 'Kon nie die arikel deel nie.';
+                    modal.show();
             });
         }
     });
@@ -1553,6 +1565,9 @@
         var myMapLng;
         
         var onSuccess = function(position) {
+            console.log(position);
+            
+            
             NgMap.getMap().then(function(map) {
                 console.log('map', map);
                 $scope.diensmap = map;
