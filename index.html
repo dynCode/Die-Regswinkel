@@ -25,9 +25,9 @@
     </head>
     <body ng-controller="AppController">   
         <ons-navigator title="Navigator" var="myNavigator">
-            <ons-page ng-device-backbutton="disableDeviceBackButtonHandler()">
+            <ons-page>
                 <div class="pageBody" ng-init="init()">
-                    <h1 class="siteheader"><img src="images/scaleIcon.png" alt="" height="30" /> DIE REGSWINKEL</h1>
+                    <h1 class="siteheader"><img src="images/scaleIcon.png" alt="" height="30" />REGSKLIEK</h1>
                     <div style="text-align: center">
                         <img src="images/userIcon.png" alt="" />
                     </div>
@@ -56,7 +56,7 @@
         <ons-template id="popover.html">
             <ons-popover modifier="simple" direction="up down" cancelable style="width: 320px">
                 <div class="menuPopover">
-                    <div style="text-align: right"><a href="" ng-click="logout(); hideMenu('#navigation');" style="color: #fff;"><ons-icon icon="fa fa-lock"></ons-icon> <span style="text-decoration: underline; padding: 5px; font-family: museoSlab500;">Teken uit</span></a></div>
+                    <div style="text-align: right"><a href="" ng-click="logout(); hideMenu('#navigation');" style="color: #fff;"><ons-icon icon="fa-lock"></ons-icon> <span style="text-decoration: underline; padding: 5px; font-family: museoSlab500;">Teken uit</span></a></div>
                     <button class="button button--large smallmenu1" ng-click="myNavigator.pushPage('user/register.html', { animation : 'fade' } ); hideMenu('#navigation')" ng-show="homeText"><img src="images/sluitAanSmlIcon.png" alt="" /> <div>Word 'n lid</div></button>
                     <button class="button button--large smallmenu2" ng-click="myNavigator.pushPage('user/arbeidsreg.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/regshulpIcon.png" alt="" /> <div>Arbeidsreg</div></button>
                     <button class="button button--large smallmenu3" ng-click="myNavigator.pushPage('user/alternatiewe-regshulp.html', { animation : 'fade' } ); hideMenu('#navigation')"><img src="images/arbeidsregIcon.png" alt="" /> <div>Alternatiewe regshulp</div></button>

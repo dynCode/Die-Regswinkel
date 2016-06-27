@@ -13,9 +13,16 @@
             <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
         </div>
         <div class="searchBar">
-            <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
+            <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
         </div>
         <button class="button button--large header3"><img src="images/aflaaibaarIcon.png" alt="" /> <div>Aflaaibare kontrakte:</div></button>
+        <div style="width: 100%; text-align: center;"><img ng-src="{{kontrakpost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
+        <ons-row>
+            <ons-col><button class='fb-button' onclick="window.plugins.socialsharing.shareViaFacebook(kontrakpost.title, null /* img */, kontrakpost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-facebook"></ons-icon></button></button></ons-col>
+            <ons-col><button class='tweet-button' onclick="window.plugins.socialsharing.shareViaTwitter(kontrakpost.title, null, kontrakpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
+            <ons-col><button class='whatsapp-button' onclick="window.plugins.socialsharing.shareViaWhatsApp(kontrakpost.title, null /* img */, kontrakpost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
+            <ons-col><button class='email-button' onclick="window.plugins.socialsharing.shareViaEmail(kontrakpost.url, kontrakpost.title, null, null, null, null, function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
+        </ons-row>
         <ons-list>
             <ons-list-item  class="articleList">
                 <h4 ng-bind-html="kontrakpost.title"></h4>

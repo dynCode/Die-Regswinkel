@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-device-backbutton="disableDeviceBackButtonHandler()">
     <ons-toolbar>
         <div class="left"></div>
         <div class="center" style="text-align: right;">
@@ -18,7 +18,7 @@
             <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
         </div>
         <div class="searchBar">
-            <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
+            <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
         </div>
         <p>&nbsp;</p>
         <div style="text-align: center">

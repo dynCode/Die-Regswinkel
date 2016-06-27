@@ -38,6 +38,15 @@ body {
     font-family: GillSans_1, sans-serif;
 }
 
+h5 {
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+h5:first-letter {
+    text-transform: uppercase;
+}
+
 input, textarea {
     margin: 5px;
     font-size: 17px;
@@ -101,6 +110,10 @@ input, textarea {
     font-family: museoSlab300;
     color: #f48120;
     text-align: left;
+}
+
+.list__item--chevron .button--large--quiet {
+    font-size: 15px;
 }
 
 .button--large--quiet span{
@@ -400,7 +413,7 @@ a {
 
 .inlineImg {
     float: left;
-    width: 40%;
+    width: 30%;
     padding-right: 5px;
     background-image: url('images/jy-en-die-reg.png');
 }
@@ -412,6 +425,47 @@ a {
     font-family: museoSlab500;
     border-radius: 0px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.71);
+}
+
+.thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    position: relative;
+    transform: translateY(25%);
+}
+
+.fb-button {
+    background-color: #3a589a;
+    border: 0px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+
+.tweet-button {
+    background-color: #8cc1db;
+    border: 0px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+
+.email-button {
+    background-color: #999;
+    border: 0px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+
+.whatsapp-button {
+    background-color: #52c95d;
+    border: 0px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
 }
 
 .the_champ_sharing_container {
@@ -452,10 +506,10 @@ a {
     }
     
     .sectionTop div {
-        font-size: 20px;
+        font-size: 15px;
     }
     
-    .inlineImg {
+    /*.inlineImg {
         float: none;
-    }
+    }*/
 }

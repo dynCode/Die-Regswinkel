@@ -13,22 +13,33 @@
             <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
         </div>
         <div class="searchBar">
-            <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
+            <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
         </div>
         <button class="button button--large header3"><img src="images/mandaatIcon.png" alt="" /> <div>Praktykkodes:</div></button>
-        <div ng-show="homeText">
+        <div ng-hide="homeText">
             <p>Om van hierdie diens gebruik te maak, moet u ŉ lid wees van Solidariteit.</p>
             <p>Wil u aansluit by <strong>Solidariteit</strong>? <a href="" ng-click="myNavigator.pushPage('user/register.html', { animation : 'slide' } )">Klik hier</a>.</p>
         </div>
-        <div ng-hide="homeText">
+        <div ng-show="homeText">
             <p>Praktykkodes is riglyne, nie wetgewing nie. Die praktykkode, of etiese kode, van jou maatskappy bevat die beginsels van wat van alle werknemers verwag word in die werkplek. Hierdie beginsels is bedoel om jou besluitneming en werkplekgedrag te lei. Die ideaal is dat jy die beginsels sal volg wanneer jy by die werk is, maar hoeveel invloed 'n kode het, hang af van hoe elke betrokke werkplek dit toepas. 'n Etiese kode op sy eie sal nie noodwendig ŉ invloed op die werkplek hê sonder implementering deur die werknemers en die bestuur nie. Diegene wat in 'n gesagsposisie is, soos bestuurders, moet aan die kode voldoen en die beginsels in die praktyk toepas sodat dit 'n impak op werknemers kan hê. </p>
+            
             <ons-list>
-                <ons-list-item ng-repeat="list in praktyklist" class="articleList">
-                    <h4 ng-bind-html="list.title"></h4>
-                    <img ng-src="{{list.thumbnail || 'images/jy-en-die-reg.png'}}" class="inlineImg" />
-                    <div ng-bind-html="list.excerpt"></div>
-                    <button class="button button--large--quiet" ng-click="praktykPosts(list.id)">Lees Meer</button>
+                
+                <ons-list-item ng-repeat="list in praktyklist" ng-click="praktykPosts(list.id)" class="articleList" modifier="chevron">
+                
+                    <ons-row>
+                        <ons-col width="85px">
+                            <img ng-src="{{list.thumbnail || 'images/jy-en-die-reg.png'}}" class="thumbnail" />
+                        </ons-col>
+                        <ons-col>
+                            <h5 ng-bind-html="list.title"></h5>
+                            <button class="button button--large--quiet" ng-click="praktykPosts(list.id)">Lees Meer</button>
+                        </ons-col>
+                        <ons-col width="30px"></ons-col>
+                    </ons-row>
+
                 </ons-list-item>
+                
             </ons-list>
             <p>&nbsp;</p>
             <div style="text-align: center">

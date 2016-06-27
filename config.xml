@@ -5,10 +5,10 @@
         versionCode = "10" 
         version   = "1.0">
 
-    <name>Die Regswinkel</name>
+    <name>Regskliek</name>
 
     <description>
-        Solidariteit - Die Regswinkel 
+        Solidariteit - Regskliek 
         
         The app offers user access to legal information and gives the user the opportunity to contact a legal adviser.
     </description>
@@ -92,6 +92,7 @@
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-inappbrowser" />
+    <plugin name="nl.x-services.plugins.socialsharing" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />

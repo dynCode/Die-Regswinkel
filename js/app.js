@@ -489,6 +489,8 @@
                     modal.hide();
                     $scope.rapost.title = data['title'];
                     $scope.rapost.content = data['content'];
+                    $scope.rapost.thumbnail = data['thumbnail'];
+                    $scope.rapost.url = data['url'];
                     myNavigator.pushPage('user/raadPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -572,6 +574,8 @@
                     modal.hide();
                     $scope.artikelspost.title = data['title'];
                     $scope.artikelspost.content = data['content'];
+                    $scope.artikelspost.thumbnail = data['thumbnail'];
+                    $scope.artikelspost.url = data['url'];
                     myNavigator.pushPage('user/artikelsPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -653,6 +657,8 @@
                     modal.hide();
                     $scope.regsvraepost.title = data['title'];
                     $scope.regsvraepost.content = data['content'];
+                    $scope.regsvraepost.thumbnail = data['thumbnail'];
+                    $scope.regsvraepost.url = data['url'];
                     myNavigator.pushPage('user/regsvraePost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -732,6 +738,8 @@
                     modal.hide();
                     $scope.praktykpost.title = data['title'];
                     $scope.praktykpost.content = data['content'];
+                    $scope.praktykpost.thumbnail = data['thumbnail'];
+                    $scope.praktykpost.url = data['url'];
                     myNavigator.pushPage('user/praktykPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -858,6 +866,8 @@
                     modal.hide();
                     $scope.sivieleHulppost.title = data['title'];
                     $scope.sivieleHulppost.content = data['content'];
+                    $scope.sivieleHulppost.thumbnail = data['thumbnail'];
+                    $scope.sivieleHulppost.url = data['url'];
                     myNavigator.pushPage('user/sivieleHulpPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -938,6 +948,8 @@
                     modal.hide();
                     $scope.kontrakpost.title = data['title'];
                     $scope.kontrakpost.content = data['content'];
+                    $scope.kontrakpost.thumbnail = data['thumbnail'];
+                    $scope.kontrakpost.url = data['url'];
                     myNavigator.pushPage('user/kontrakDownloadsPost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -1122,6 +1134,8 @@
                     modal.hide();
                     $scope.wettepost.title = data['title'];
                     $scope.wettepost.content = data['content'];
+                    $scope.wettepost.thumbnail = data['thumbnail'];
+                    $scope.wettepost.url = data['url'];
                     myNavigator.pushPage('user/wettePost.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -1215,6 +1229,8 @@
                     modal.hide();
                     $scope.resultpost.title = data['title'];
                     $scope.resultpost.content = data['content'];
+                    $scope.resultpost.thumbnail = data['thumbnail'];
+                    $scope.resultpost.url = data['url'];
                     myNavigator.pushPage('user/resultsPosts.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';
@@ -1298,6 +1314,7 @@
                         $scope.data.errorCode = 'Baie dankie dat u die vorm ingevul het. Solidariteit sal u binnekort skakel.';
                         modal.show();
                         $timeout(function(){
+                            $scope.data = [];
                             modal.hide();
                             myNavigator.pushPage('user/home.html', { animation : 'fade' });
                         },'2000');
