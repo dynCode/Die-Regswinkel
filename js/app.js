@@ -1670,7 +1670,7 @@
 
         // onError Callback receives a PositionError object
         //
-        function onError(error) {
+        var onError = function(error) {
             $scope.data.errorIconSpin = 'false';
             $scope.data.errorIcon = 'fa fa-exclamation-triangle';
             $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
@@ -1797,7 +1797,7 @@
 
         // onError Callback receives a PositionError object
         //
-        function onError(error) {
+        var onError = function(error) {
             $scope.data.errorIconSpin = 'false';
             $scope.data.errorIcon = 'fa fa-exclamation-triangle';
             $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
