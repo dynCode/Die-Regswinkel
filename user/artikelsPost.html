@@ -18,10 +18,10 @@
         <button class="button button--large header1"><img src="images/artikelsIcon.png" alt="" /> <div>Artikels:</div></button>
         <div style="width: 100%; text-align: center;"><img ng-src="{{artikelspost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
         <ons-row>
-            <ons-col><button class='fb-button' onclick="window.plugins.socialsharing.shareViaFacebook(artikelspost.title, null /* img */, artikelspost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-facebook"></ons-icon></button></button></ons-col>
-            <ons-col><button class='tweet-button' onclick="window.plugins.socialsharing.shareViaTwitter(artikelspost.title, null, artikelspost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
-            <ons-col><button class='whatsapp-button' onclick="window.plugins.socialsharing.shareViaWhatsApp(artikelspost.title, null /* img */, artikelspost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
-            <ons-col><button class='email-button' onclick="window.plugins.socialsharing.shareViaEmail(artikelspost.url, artikelspost.title, null, null, null, null, function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
+            <ons-col><button class='fb-button' onclick="window.plugins.socialsharing.shareViaFacebook(''+artikelspost.title+'', null /* img */, ''+artikelspost.url+'', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-facebook"></ons-icon></button></button></ons-col>
+            <ons-col><button class='tweet-button' onclick="window.plugins.socialsharing.shareViaTwitter(''+artikelspost.title+'', null, ''+artikelspost.url+'')"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
+            <ons-col><button class='whatsapp-button' onclick="window.plugins.socialsharing.shareViaWhatsApp(''+artikelspost.title+'', null /* img */, ''+artikelspost.url+'', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
+            <ons-col><button class='email-button' onclick="window.plugins.socialsharing.shareViaEmail(''+artikelspost.url, ''+artikelspost.title+'', null, null, null, null, function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
         </ons-row>
         <ons-list>
             <ons-list-item  class="articleList">
