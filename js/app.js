@@ -1362,6 +1362,8 @@
     });
     
     module.controller('mapController', function($scope, NgMap, $timeout) {
+        $scope.data = [];
+        
         console.log("navigator.geolocation works well");
         $scope.diensmap = '';
         $scope.diensKantore = [];
@@ -1484,6 +1486,8 @@
     });
     
     module.controller('ccmaController', function($scope, NgMap, $timeout) {
+        $scope.data = [];
+        
         $scope.ccmamap = '';
         $scope.ccmaKantore = [];
         $scope.ccmaKantoor;
