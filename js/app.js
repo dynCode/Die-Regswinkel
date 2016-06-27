@@ -1670,11 +1670,8 @@
 
         // onError Callback receives a PositionError object
         //
-        var onError = function(error) {
-            $scope.data.errorIconSpin = 'false';
-            $scope.data.errorIcon = 'fa fa-exclamation-triangle';
-            $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
-            modal.show();
+        function onError(error) {
+            alert('GPS dienste is afgeskakel. Skakel dit asb aan.');
         }
         
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -1797,11 +1794,8 @@
 
         // onError Callback receives a PositionError object
         //
-        var onError = function(error) {
-            $scope.data.errorIconSpin = 'false';
-            $scope.data.errorIcon = 'fa fa-exclamation-triangle';
-            $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
-            modal.show();
+        function onError(error) {
+            alert('GPS dienste is afgeskakel. Skakel dit asb aan.');
         }
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
