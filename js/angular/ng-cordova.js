@@ -2,153 +2,14 @@
 angular.module('ngCordova', [
   'ngCordova.plugins'
 ]);
-angular.module('ngCordova.plugins', [	 'googleMap',	 'socialSharing',	 'batteryStatu',	 'geolocation']);//#### Begin Individual Plugin Code ####//  install   :   cordova plugin add cordova-plugin-battery-status
-//  link      :   https://github.com/apache/cordova-plugin-battery-status
 
-angular.module('ngCordova.plugins.batteryStatus', [])
 
-  .factory('$cordovaBatteryStatus', ['$rootScope', '$window', '$timeout', function ($rootScope, $window, $timeout) {
+angular.module('ngCordova.plugins', [
+	 'socialSharing'
+]);
 
-    /**
-      * @param {string} status
-      */
-    var batteryStatus = function (status) {
-      $timeout(function () {
-        $rootScope.$broadcast('$cordovaBatteryStatus:status', status);
-      });
-    };
+//#### Begin Individual Plugin Code ####
 
-    /**
-      * @param {string} status
-      */
-    var batteryCritical = function (status) {
-      $timeout(function () {
-        $rootScope.$broadcast('$cordovaBatteryStatus:critical', status);
-      });
-    };
-
-    /**
-      * @param {string} status
-      */
-    var batteryLow = function (status) {
-      $timeout(function () {
-        $rootScope.$broadcast('$cordovaBatteryStatus:low', status);
-      });
-    };
-
-    document.addEventListener('deviceready', function () {
-      if (navigator.battery) {
-        $window.addEventListener('batterystatus', batteryStatus, false);
-        $window.addEventListener('batterycritical', batteryCritical, false);
-        $window.addEventListener('batterylow', batteryLow, false);
-
-      }
-    }, false);
-    return true;
-  }])
-  .run(['$injector', function ($injector) {
-    $injector.get('$cordovaBatteryStatus'); //ensure the factory and subsequent event listeners get initialised
-  }]);
-// install   :     cordova plugin add cordova-plugin-geolocation
-// link      :     https://github.com/apache/cordova-plugin-geolocation
-
-angular.module('ngCordova.plugins.geolocation', [])
-
-  .factory('$cordovaGeolocation', ['$q', function ($q) {
-
-    return {
-      getCurrentPosition: function (options) {
-        var q = $q.defer();
-
-        navigator.geolocation.getCurrentPosition(function (result) {
-          q.resolve(result);
-        }, function (err) {
-          q.reject(err);
-        }, options);
-
-        return q.promise;
-      },
-
-      watchPosition: function (options) {
-        var q = $q.defer();
-
-        var watchID = navigator.geolocation.watchPosition(function (result) {
-          q.notify(result);
-        }, function (err) {
-          q.reject(err);
-        }, options);
-
-        q.promise.cancel = function () {
-          navigator.geolocation.clearWatch(watchID);
-        };
-
-        q.promise.clearWatch = function (id) {
-          navigator.geolocation.clearWatch(id || watchID);
-        };
-
-        q.promise.watchID = watchID;
-
-        return q.promise;
-      },
-
-      clearWatch: function (watchID) {
-        return navigator.geolocation.clearWatch(watchID);
-      }
-    };
-  }]);
-// install   :
-// link      :
-
-// Google Maps needs ALOT of work!
-// Not for production use
-
-angular.module('ngCordova.plugins.googleMap', [])
-
-  .factory('$cordovaGoogleMap', ['$q', '$window', function ($q, $window) {
-
-    var map = null;
-
-    return {
-      getMap: function (options) {
-        var q = $q.defer();
-
-        if (!$window.plugin.google.maps) {
-          q.reject(null);
-        } else {
-          var div = document.getElementById('map_canvas');
-          map = $window.plugin.google.maps.Map.getMap(options);
-          map.setDiv(div);
-          q.resolve(map);
-        }
-        return q.promise;
-      },
-
-      isMapLoaded: function () { // check if an instance of the map exists
-        return !!map;
-      },
-      addMarker: function (markerOptions) { // add a marker to the map with given markerOptions
-        var q = $q.defer();
-        map.addMarker(markerOptions, function (marker) {
-          q.resolve(marker);
-        });
-
-        return q.promise;
-      },
-      getMapTypeIds: function () {
-        return $window.plugin.google.maps.mapTypeId;
-      },
-      setVisible: function (isVisible) {
-        var q = $q.defer();
-        map.setVisible(isVisible);
-        return q.promise;
-      },
-      // I don't know how to deallocate te map and the google map plugin.
-      cleanup: function () {
-        map = null;
-        // delete map;
-      }
-    };
-  }]);
 // install   :      cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
 // link      :      https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin
 
