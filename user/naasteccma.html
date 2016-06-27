@@ -15,8 +15,8 @@
         <button class="button button--large header2"><img src="images/ccmaIcon.png" alt="" /> <div>Naaste CCMA kantoor:</div></button>
         
         <div style="height: 100%; width:100%" ng-controller="ccmaController">
-            <h4><i class="fa fa-map-marker"></i> {{ccmaKantoor.title}}</h4>
-            <div ng-bind-html="ccmaKantoor.infoWindow"></div>
+            <h4><i class="fa fa-map-marker"></i> {{ccmaKantoor.title || 'U GPS is af'}}</h4>
+            <div ng-bind-html="ccmaKantoor.infoWindow || 'GPS dienste is afgeskakel. Skakel dit asb aan.'"></div>
             <div ng-bind-html="ccmaKantoor.mapLink | externalLinks | to_trusted"></div>
             <ng-map default-style="false" center="current-location" zoom="11" style="height: 350px; width:100%">
                 <marker position="current-location" icon="https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/jyMarker.png">

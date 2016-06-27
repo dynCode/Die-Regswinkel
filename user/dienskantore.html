@@ -13,8 +13,8 @@
             <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
         </div>
         <div style="height: 100%; width:100%" ng-controller="mapController">
-            <h2 class="sectionTop" style='background-color: #f48120; color: #fff'><img src="images/locationIcon.png" alt="" /> <div style="font-size: 20px;">{{naasteKantoor.title}}</div></h2>
-            <div ng-bind-html="naasteKantoor.infoWindow"></div>
+            <h2 class="sectionTop" style='background-color: #f48120; color: #fff'><img src="images/locationIcon.png" alt="" /> <div style="font-size: 20px;">{{naasteKantoor.title || 'U GPS is af'}}</div></h2>
+            <div ng-bind-html="naasteKantoor.infoWindow || 'GPS dienste is afgeskakel. Skakel dit asb aan.'"></div>
             <div ng-bind-html="naasteKantoor.mapLink | externalLinks | to_trusted"></div>
             <ng-map default-style="false" center="current-location" zoom="11" style="height: 350px; width:100%">
                 <marker position="current-location" icon="https://solidariteit.co.za/wp-content/themes/wereld-tuisblad-theme/jyMarker.png">

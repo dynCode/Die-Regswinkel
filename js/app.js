@@ -1579,17 +1579,6 @@
 
                 myMapLat = position.coords.latitude;
                 myMapLng = position.coords.longitude;
-                
-                if (!myMapLat && !myMapLng) {
-                    $scope.data.errorIconSpin = 'false';
-                    $scope.data.errorIcon = 'fa-exclamation-triangle';
-                    $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
-                    modal.show();
-                    $timeout(function(){
-                        modal.hide();
-                        myNavigator.popPage();
-                    },'2000');
-                }
 
                 console.log('My Lat: '+myMapLat+' My Lng: '+myMapLng);
 
@@ -1807,9 +1796,12 @@
 
         // onError Callback receives a PositionError object
         //
-        function onError(error) {
-            alert('GPS dienste is afgeskakel. Skakel dit asb aan.');
-        }
+        var onError = function(error) {
+            $scope.data.errorIconSpin = 'false';
+            $scope.data.errorIcon = 'fa-exclamation-triangle';
+            $scope.data.errorCode = 'GPS dienste is afgeskakel. Skakel dit asb aan.';
+            modal.show();
+        };
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
