@@ -18,10 +18,10 @@
         <button class="button button--large header2"><img src="images/regsvraeIcon.png" alt="" /> <div>Regsvrae wat reeds beantwoord is:</div></button>
         <div style="width: 100%; text-align: center;"><img ng-src="{{regsvraepost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
         <ons-row>
-            <ons-col><button class='fb-button' onclick="window.plugins.socialsharing.shareViaFacebook(regsvraepost.title, null /* img */, regsvraepost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-facebook"></ons-icon></button></button></ons-col>
-            <ons-col><button class='tweet-button' onclick="window.plugins.socialsharing.shareViaTwitter(regsvraepost.title, null, regsvraepost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
-            <ons-col><button class='whatsapp-button' onclick="window.plugins.socialsharing.shareViaWhatsApp(regsvraepost.title, null /* img */, regsvraepost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
-            <ons-col><button class='email-button' onclick="window.plugins.socialsharing.shareViaEmail(regsvraepost.url, regsvraepost.title, null, null, null, null, function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
+            <ons-col><button class='fb-button' ng-click="shareViaFacebook(regsvraepost.title, null, regsvraepost.url)"><ons-icon icon="fa-facebook"></ons-icon></button></ons-col>
+            <ons-col><button class='tweet-button' ng-click="shareViaTwitter(regsvraepost.title, null, regsvraepost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
+            <ons-col><button class='whatsapp-button' ng-click="shareViaWhatsApp(regsvraepost.title, null, regsvraepost.url)"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
+            <ons-col><button class='email-button' ng-click="shareViaEmail(regsvraepost.title, regsvraepost.url, null, null, null, null)"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
         </ons-row>
         <ons-list>
             <ons-list-item  class="articleList">

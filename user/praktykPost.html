@@ -18,10 +18,10 @@
         <button class="button button--large header3"><img src="images/mandaatIcon.png" alt="" /> <div>Praktykkodes:</div></button>
         <div style="width: 100%; text-align: center;"><img ng-src="{{praktykpost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
         <ons-row>
-            <ons-col><button class='fb-button' onclick="window.plugins.socialsharing.shareViaFacebook(praktykpost.title, null /* img */, praktykpost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-facebook"></ons-icon></button></button></ons-col>
-            <ons-col><button class='tweet-button' onclick="window.plugins.socialsharing.shareViaTwitter(praktykpost.title, null, praktykpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
-            <ons-col><button class='whatsapp-button' onclick="window.plugins.socialsharing.shareViaWhatsApp(praktykpost.title, null /* img */, praktykpost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
-            <ons-col><button class='email-button' onclick="window.plugins.socialsharing.shareViaEmail(praktykpost.url, praktykpost.title, null, null, null, null, function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
+            <ons-col><button class='fb-button' ng-click="shareViaFacebook(praktykpost.title, null, praktykpost.url)"><ons-icon icon="fa-facebook"></ons-icon></button></ons-col>
+            <ons-col><button class='tweet-button' ng-click="shareViaTwitter(praktykpost.title, null, praktykpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
+            <ons-col><button class='whatsapp-button' ng-click="shareViaWhatsApp(praktykpost.title, null, praktykpost.url)"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
+            <ons-col><button class='email-button' ng-click="shareViaEmail(praktykpost.title, praktykpost.url, null, null, null, null)"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
         </ons-row>
         <ons-list>
             <ons-list-item  class="articleList">

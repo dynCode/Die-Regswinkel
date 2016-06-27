@@ -18,10 +18,10 @@
         <button class="button button--large header1"><img src="images/regshulpIcon.png" alt="" /> <div>Resultate:</div></button>
         <div style="width: 100%; text-align: center;"><img ng-src="{{resultpost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
         <ons-row>
-            <ons-col><button class='fb-button' onclick="window.plugins.socialsharing.shareViaFacebook(resultpost.title, null /* img */, resultpost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-facebook"></ons-icon></button></button></ons-col>
-            <ons-col><button class='tweet-button' onclick="window.plugins.socialsharing.shareViaTwitter(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
-            <ons-col><button class='whatsapp-button' onclick="window.plugins.socialsharing.shareViaWhatsApp(resultpost.title, null /* img */, resultpost.url, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
-            <ons-col><button class='email-button' onclick="window.plugins.socialsharing.shareViaEmail(resultpost.url, resultpost.title, null, null, null, null, function(msg) {console.log('ok: ' + msg)}, function(msg) {alert('error: ' + msg)})"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
+            <ons-col><button class='fb-button' ng-click="shareViaFacebook(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-facebook"></ons-icon></button></ons-col>
+            <ons-col><button class='tweet-button' ng-click="shareViaTwitter(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
+            <ons-col><button class='whatsapp-button' ng-click="shareViaWhatsApp(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
+            <ons-col><button class='email-button' ng-click="shareViaEmail(resultpost.title, resultpost.url, null, null, null, null)"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
         </ons-row>
         <ons-list>
             <ons-list-item  class="articleList">
