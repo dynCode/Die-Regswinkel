@@ -235,8 +235,6 @@
         $scope.prePage = false;
         $scope.prePageNum = '';
         
-        //
-        
         $scope.init = function() {
             var user = $window.localStorage.getItem('username'); 
             var pass = $window.localStorage.getItem('password'); 
@@ -261,7 +259,7 @@
                         $timeout(function(){
                             //modal.hide();
                             myNavigator.pushPage('user/home.html', { animation : 'fade' });
-                        },'2000');
+                        },'500');
                     } else {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-exclamation-triangle';
@@ -270,7 +268,7 @@
                         $timeout(function(){
                             modal.hide();
                             myNavigator.pushPage('login.html', { animation : 'fade' });
-                        },'1000');
+                        },'500');
                     }
                 })
                 .error(function(data, status) {
@@ -281,9 +279,13 @@
                     $timeout(function(){
                         modal.hide();
                         myNavigator.pushPage('login.html', { animation : 'fade' });
-                    },'1000');
+                    },'500');
                 });
-            } 
+            } else {
+                $timeout(function(){
+                    myNavigator.pushPage('login.html', { animation : 'fade' });
+                },'1000');
+            }
         }
         
         // process logout
