@@ -1,0 +1,19 @@
+<ons-page>
+    <div class="pageBody">
+        <h1 class="siteheader"><img src="images/scaleIcon.png" alt="" height="30" />REGSKLIEK</h1>
+        <div style="text-align: center">
+            <img src="images/userIcon.png" alt="" />
+        </div>
+        <div class="disBar">
+            <h1>Teken aan</h1>
+        </div>
+        <div style="text-align: center">
+            <p>Teken asb. aan met jou Solidariteit Wêreld Profiel om voort te gaan.</p>
+            <ons-row><ons-col><input type="text" placeholder="Gebruikernaam" ng-model="data.username" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><input type="password" placeholder="Wagwoord" ng-model="data.password" style="width: 80%"></ons-col></ons-row>
+            <ons-row><ons-col><button class="button submitMe" style="margin: 10px 0;"  ng-click="LogIn()">STUUR</button></ons-col></ons-row>                   
+        </div>
+        <button class="button button--large--quiet" ng-click="myNavigator.pushPage('recover.html', { animation : 'slide' } )"><img src="images/lockIcon.png" alt="" /> <span>Besonderhede vergeet?</span></button>
+        <button class="button button--large--quiet" ng-click="myNavigator.pushPage('register.html', { animation : 'slide' } )"><img src="images/newUserIcon.png" alt="" /> <span>Registreer hier.</span></button>
+    </div>
+</ons-page>

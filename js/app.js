@@ -235,15 +235,13 @@
         $scope.prePage = false;
         $scope.prePageNum = '';
         
+        //
+        
         $scope.init = function() {
             var user = $window.localStorage.getItem('username'); 
             var pass = $window.localStorage.getItem('password'); 
             
             if (user && pass) {
-                modal.show();
-                $scope.data.errorIcon = 'refresh';
-                $scope.data.errorIconSpin = 'true';
-                $scope.data.errorCode = '';
                 $http.post(apiPath + 'lookup.php', {"llookup" : "yes", "username" : user, "password" : pass})
                 .success(function(data, status){
                     if (data['loginValid'] === 'yes') {
@@ -260,14 +258,19 @@
                         $window.localStorage.setItem('password',pass); 
                         $window.localStorage.setItem('user_active',data['active']);
                         
-                        modal.hide();
-                        myNavigator.pushPage('user/home.html', { animation : 'fade' });
-                        
+                        $timeout(function(){
+                            //modal.hide();
+                            myNavigator.pushPage('user/home.html', { animation : 'fade' });
+                        },'2000');
                     } else {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
                         modal.show();
+                        $timeout(function(){
+                            modal.hide();
+                            myNavigator.pushPage('login.html', { animation : 'fade' });
+                        },'1000');
                     }
                 })
                 .error(function(data, status) {
@@ -275,11 +278,13 @@
                     $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
+                    $timeout(function(){
+                        modal.hide();
+                        myNavigator.pushPage('login.html', { animation : 'fade' });
+                    },'1000');
                 });
             } 
         }
-        
-        $timeout($scope.init, 1000);
         
         // process logout
         $scope.logout = function() {
@@ -1295,8 +1300,12 @@
         
         // search results
         $scope.searchFiles = function (pageNum) {
-            $scope.searchTerm = '';
-            $scope.searchTerm = $scope.data.searhFile;
+            //$scope.searchTerm = '';
+            if ($scope.searchTerm === '') {
+                $scope.searchTerm = $scope.data.searhFile;
+            } else if ($scope.data.searhFile !== '' && $scope.data.searhFile !== $scope.searchTerm) {
+                $scope.searchTerm = $scope.data.searhFile;
+            }
             console.log('Search Term', $scope.searchTerm);
             
             $scope.pageNum = '';
@@ -1677,7 +1686,7 @@
             modal.show();
         };
         
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     });
     
     module.controller('ccmaController', function($scope, NgMap, $timeout) {
@@ -1803,6 +1812,6 @@
             modal.show();
         };
 
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     });
 })();

@@ -85,6 +85,19 @@ input, textarea {
     padding: 20px;
 }
 
+.BodyHome {
+    background-image: url("../splash.png");
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: cover;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: #FCFCFC;
+}
+
 .siteheader{
     font-family: museoSlab500;
     color: #f48120;
