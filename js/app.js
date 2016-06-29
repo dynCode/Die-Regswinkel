@@ -256,19 +256,14 @@
                         $window.localStorage.setItem('password',pass); 
                         $window.localStorage.setItem('user_active',data['active']);
                         
-                        $timeout(function(){
-                            //modal.hide();
-                            myNavigator.pushPage('user/home.html', { animation : 'fade' });
-                        },'500');
+                        myNavigator.pushPage('user/home.html', { animation : 'fade' });
                     } else {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
                         modal.show();
-                        $timeout(function(){
-                            modal.hide();
-                            myNavigator.pushPage('login.html', { animation : 'fade' });
-                        },'500');
+                        modal.hide();
+                        myNavigator.pushPage('login.html', { animation : 'fade' });
                     }
                 })
                 .error(function(data, status) {
@@ -276,17 +271,15 @@
                     $scope.data.errorIcon = 'fa-exclamation-triangle';
                     $scope.data.errorCode = 'Request failed ' + data + ' ' + status;
                     modal.show();
-                    $timeout(function(){
-                        modal.hide();
-                        myNavigator.pushPage('login.html', { animation : 'fade' });
-                    },'500');
+                    myNavigator.pushPage('login.html', { animation : 'fade' });
+                    modal.hide();
                 });
             } else {
-                $timeout(function(){
-                    myNavigator.pushPage('login.html', { animation : 'fade' });
-                },'1000');
+                myNavigator.pushPage('login.html', { animation : 'fade' });
             }
-        }
+        };
+        
+        $timeout($scope.init,'2000');
         
         // process logout
         $scope.logout = function() {
