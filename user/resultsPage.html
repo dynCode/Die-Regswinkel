@@ -16,27 +16,33 @@
             <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
         </div>
         <button class="button button--large header1"><img src="images/regshulpIcon.png" alt="" /> <div>Resultate:</div></button>
-        <ons-list>
-                
-            <ons-list-item ng-repeat="list in resultlist" ng-click="resultsPosts(list.id)" class="articleList" modifier="chevron">
+        <div ng-show="homeText">
+            <p>Indien u meer van die Solidariteit Regswinkel se dienste wil gebruik maak, moet u ŉ lid wees.</p>
+            <p>Wil u aansluit by <strong>Solidariteit</strong>? <a href="" ng-click="myNavigator.pushPage('user/register.html', { animation : 'slide' } )">Klik hier</a>.</p>
+        </div>
+        <div ng-hide="homeText">
+            <ons-list>
 
-                <ons-row>
-                    <ons-col width="85px">
-                        <img ng-src="{{list.thumbnail || 'images/jy-en-die-reg.png'}}" class="thumbnail" />
-                    </ons-col>
-                    <ons-col>
-                        <h5 ng-bind-html="list.title"></h5>
-                        <button class="button button--large--quiet" ng-click="resultsPosts(list.id)">Lees Meer</button>
-                    </ons-col>
-                    <ons-col width="30px"></ons-col>
-                </ons-row>
+                <ons-list-item ng-repeat="list in resultlist" ng-click="resultsPosts(list.id)" class="articleList" modifier="chevron">
 
-            </ons-list-item>
+                    <ons-row>
+                        <ons-col width="85px">
+                            <img ng-src="{{list.thumbnail || 'images/jy-en-die-reg.png'}}" class="thumbnail" />
+                        </ons-col>
+                        <ons-col>
+                            <h5 ng-bind-html="list.title"></h5>
+                            <button class="button button--large--quiet" ng-click="resultsPosts(list.id)">Lees Meer</button>
+                        </ons-col>
+                        <ons-col width="30px"></ons-col>
+                    </ons-row>
 
-        </ons-list>
-        <p>&nbsp;</p>
-        <div style="text-align: center">
-            <a class="button" ng-show="prePage" ng-click="searchFiles(prePageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-left"></i></a> Bl {{pageNum}}/{{pageCount}} <a class="button" ng-show="nextPage" ng-click="searchFiles(nextPageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-right"></i></a>
+                </ons-list-item>
+
+            </ons-list>
+            <p>&nbsp;</p>
+            <div style="text-align: center">
+                <a class="button" ng-show="prePage" ng-click="searchFiles(prePageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-left"></i></a> Bl {{pageNum}}/{{pageCount}} <a class="button" ng-show="nextPage" ng-click="searchFiles(nextPageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-right"></i></a>
+            </div>
         </div>
     </div>
 </ons-page>

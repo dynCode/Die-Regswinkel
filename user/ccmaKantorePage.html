@@ -20,7 +20,14 @@
             <p><img src="images/ccmaMap.png" alt="" width="75%" /></p>
             <button class="button greyBut" ng-click="myNavigator.pushPage('user/naasteccma.html', { animation : 'fade' } )">Naaste CCMA kantoor</button>
             <p></p>
-            <button class="button greyBut" ng-click="myNavigator.pushPage('user/ccmavirlede.html', { animation : 'fade' } )" ng-hide="homeText">CCMA vir Solidariteitlede</button>
+            <div ng-hide="homeText">
+                <button class="button greyBut" ng-click="myNavigator.pushPage('user/ccmavirlede.html', { animation : 'fade' } )">CCMA vir Solidariteitlede</button>
+            </div>
+            <div ng-show="homeText">
+                <button class="button greyBut" ng-click="myNavigator.pushPage('user/ccmavirlede.html', { animation : 'fade' } )" disabled="disabled" >CCMA vir Solidariteitlede</button>
+                <p>Om van hierdie diens gebruik te maak, moet u ŉ lid wees van Solidariteit.</p>
+                <p>Wil u aansluit by <strong>Solidariteit</strong>? <a href="" ng-click="myNavigator.pushPage('user/register.html', { animation : 'slide' } )">Klik hier</a>.</p>
+            </div>
         </div>
         
     </div>
