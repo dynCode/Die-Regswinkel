@@ -846,7 +846,7 @@
             $scope.prePage = false;
             $scope.prePageNum = '';
             
-            if (pageNum === 1) {
+            if (pageNum === 1 && $scope.user_active === 'no') {
                 $scope.homeText = true;
                 
                 if ($window.localStorage.getItem('praktykDate') === null) {
@@ -1275,7 +1275,7 @@
             $scope.prePage = false;
             $scope.prePageNum = '';
             
-            if (pageNum === 1) {
+            if (pageNum === 1 && $scope.user_active === 'no') {
                 $scope.homeText = true;
                 
                 if ($window.localStorage.getItem('wetteDate') === null) {
@@ -1399,7 +1399,7 @@
             $scope.prePage = false;
             $scope.prePageNum = '';
             
-            if (pageNum === 1) {
+            if (pageNum === 1 && $scope.user_active === 'no') {
                 $scope.homeText = true;
                 
                 if ($window.localStorage.getItem('searchDate') === null) {
