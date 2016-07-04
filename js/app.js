@@ -256,6 +256,13 @@
             $scope.searchcount = $window.localStorage.getItem('searchcount');
         }
         
+        //article page count
+        if ($window.localStorage.getItem('articlecount') === null) {
+            $scope.articlecount = 0;
+        } else {
+            $scope.articlecount = $window.localStorage.getItem('articlecount');
+        }
+        
         $scope.init = function() {
             var user = $window.localStorage.getItem('username'); 
             var pass = $window.localStorage.getItem('password'); 
@@ -678,6 +685,40 @@
             $scope.nextPageNum = '';
             $scope.prePage = false;
             $scope.prePageNum = '';
+            
+            if (pageNum === 1 && $scope.user_active === 'no') {
+                $scope.homeText = true;
+                
+                if ($window.localStorage.getItem('articleDate') === null) {
+                    var d = new Date();
+                    var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                    console.log('articleDate', datestring);
+                    $window.localStorage.setItem('articleDate',datestring);
+                }
+                
+                if ($scope.articlecount < 3) {
+                    $scope.articlecount = $scope.articlecount + 1;
+                    $scope.homeText = false;
+                } else {
+                    var oneDay = 24*60*60*1000;
+                    
+                    var articleDate = $window.localStorage.getItem('articleDate');
+                    console.log('articleDate', articleDate);
+                    var startDate = new Date(articleDate);
+                    var endDate = new Date();
+
+                    var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+                    console.log('Day Count', diffDays);
+                    if (diffDays >= 30) {
+                        $scope.articlecount = 1;
+                        $scope.homeText = false;
+                        var d = new Date();
+                        var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                        $window.localStorage.setItem('articleDate',datestring);
+                    }
+                }
+                $window.localStorage.setItem('articlecount',$scope.articlecount);
+            }
             
             modal.show();
             $scope.data.errorIcon = 'refresh';
