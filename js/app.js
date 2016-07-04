@@ -1517,6 +1517,10 @@
         
         // live chat
         $scope.liveChat = function () {
+            var ref = cordova.InAppBrowser.open("http://v2.zopim.com/widget/livechat.html?key=31dS7P5l058LSzxOrg39w82gFwrdxY9W", "_blank", 'location=yes');
+        };
+        /* OLD
+        $scope.liveChat = function () {
             modal.show();
             $scope.data.errorIcon = 'refresh';
             $scope.data.errorIconSpin = 'true';
@@ -1542,6 +1546,7 @@
                 modal.show();
             });
         };
+        */
         
         // beroepsgesondheid form submit
         $scope.bgvSubmit = function () {
