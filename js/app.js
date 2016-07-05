@@ -686,40 +686,6 @@
             $scope.prePage = false;
             $scope.prePageNum = '';
             
-            if (pageNum === 1 && $scope.user_active === 'no') {
-                $scope.homeText = true;
-                
-                if ($window.localStorage.getItem('articleDate') === null) {
-                    var d = new Date();
-                    var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                    console.log('articleDate', datestring);
-                    $window.localStorage.setItem('articleDate',datestring);
-                }
-                
-                if ($scope.articlecount < 3) {
-                    $scope.articlecount = $scope.articlecount + 1;
-                    $scope.homeText = false;
-                } else {
-                    var oneDay = 24*60*60*1000;
-                    
-                    var articleDate = $window.localStorage.getItem('articleDate');
-                    console.log('articleDate', articleDate);
-                    var startDate = new Date(articleDate);
-                    var endDate = new Date();
-
-                    var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
-                    console.log('Day Count', diffDays);
-                    if (diffDays >= 30) {
-                        $scope.articlecount = 1;
-                        $scope.homeText = false;
-                        var d = new Date();
-                        var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                        $window.localStorage.setItem('articleDate',datestring);
-                    }
-                }
-                $window.localStorage.setItem('articlecount',$scope.articlecount);
-            }
-            
             modal.show();
             $scope.data.errorIcon = 'refresh';
             $scope.data.errorIconSpin = 'true';
@@ -886,40 +852,6 @@
             $scope.nextPageNum = '';
             $scope.prePage = false;
             $scope.prePageNum = '';
-            
-            if (pageNum === 1 && $scope.user_active === 'no') {
-                $scope.homeText = true;
-                
-                if ($window.localStorage.getItem('praktykDate') === null) {
-                    var d = new Date();
-                    var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                    console.log('praktykDate', datestring);
-                    $window.localStorage.setItem('praktykDate',datestring);
-                }
-                
-                if ($scope.praktykcount < 3) {
-                    $scope.praktykcount = $scope.praktykcount + 1;
-                    $scope.homeText = false;
-                } else {
-                    var oneDay = 24*60*60*1000;
-                    
-                    var wetteDate = $window.localStorage.getItem('praktykDate');
-                    console.log('praktykDate', wetteDate);
-                    var startDate = new Date(wetteDate);
-                    var endDate = new Date();
-
-                    var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
-                    console.log('Day Count', diffDays);
-                    if (diffDays >= 30) {
-                        $scope.praktykcount = 1;
-                        $scope.homeText = false;
-                        var d = new Date();
-                        var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                        $window.localStorage.setItem('praktykDate',datestring);
-                    }
-                }
-                $window.localStorage.setItem('praktykcount',$scope.praktykcount);
-            }
                         
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -971,6 +903,41 @@
                 console.log(data);
                 if (status === 200 && data) {
                     modal.hide();
+                    
+                    if ($scope.user_active === 'no') {
+                        $scope.homeText = true;
+
+                        if ($window.localStorage.getItem('praktykDate') === null) {
+                            var d = new Date();
+                            var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                            console.log('praktykDate', datestring);
+                            $window.localStorage.setItem('praktykDate',datestring);
+                        }
+
+                        if ($scope.praktykcount < 3) {
+                            $scope.praktykcount++;
+                            $scope.homeText = false;
+                        } else {
+                            var oneDay = 24*60*60*1000;
+
+                            var wetteDate = $window.localStorage.getItem('praktykDate');
+                            console.log('praktykDate', wetteDate);
+                            var startDate = new Date(wetteDate);
+                            var endDate = new Date();
+
+                            var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+                            console.log('Day Count', diffDays);
+                            if (diffDays >= 30) {
+                                $scope.praktykcount = 1;
+                                $scope.homeText = false;
+                                var d = new Date();
+                                var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                                $window.localStorage.setItem('praktykDate',datestring);
+                            }
+                        }
+                        $window.localStorage.setItem('praktykcount',$scope.praktykcount);
+                    }
+                    
                     $scope.praktykpost.title = data['title'];
                     $scope.praktykpost.content = data['content'];
                     $scope.praktykpost.thumbnail = data['thumbnail'];
@@ -1181,6 +1148,41 @@
                 console.log(data);
                 if (status === 200 && data) {
                     modal.hide();
+                    
+                    if ($scope.user_active === 'no') {
+                        $scope.homeText = true;
+
+                        if ($window.localStorage.getItem('articleDate') === null) {
+                            var d = new Date();
+                            var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                            console.log('articleDate', datestring);
+                            $window.localStorage.setItem('articleDate',datestring);
+                        }
+
+                        if ($scope.articlecount < 3) {
+                            $scope.articlecount++;
+                            $scope.homeText = false;
+                        } else {
+                            var oneDay = 24*60*60*1000;
+
+                            var articleDate = $window.localStorage.getItem('articleDate');
+                            console.log('articleDate', articleDate);
+                            var startDate = new Date(articleDate);
+                            var endDate = new Date();
+
+                            var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+                            console.log('Day Count', diffDays);
+                            if (diffDays >= 30) {
+                                $scope.articlecount = 1;
+                                $scope.homeText = false;
+                                var d = new Date();
+                                var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                                $window.localStorage.setItem('articleDate',datestring);
+                            }
+                        }
+                        $window.localStorage.setItem('articlecount',$scope.articlecount);
+                    }
+                    
                     $scope.kontrakpost.title = data['title'];
                     $scope.kontrakpost.content = data['content'];
                     $scope.kontrakpost.thumbnail = data['thumbnail'];
@@ -1316,40 +1318,6 @@
             $scope.prePage = false;
             $scope.prePageNum = '';
             
-            if (pageNum === 1 && $scope.user_active === 'no') {
-                $scope.homeText = true;
-                
-                if ($window.localStorage.getItem('wetteDate') === null) {
-                    var d = new Date();
-                    var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                    console.log('wetteDate', datestring);
-                    $window.localStorage.setItem('wetteDate',datestring);
-                }
-                
-                if ($scope.wettecount < 3) {
-                    $scope.wettecount = $scope.wettecount + 1;
-                    $scope.homeText = false;
-                } else {
-                    var oneDay = 24*60*60*1000;
-                    
-                    var wetteDate = $window.localStorage.getItem('wetteDate');
-                    console.log('WetteDate', wetteDate);
-                    var startDate = new Date(wetteDate);
-                    var endDate = new Date();
-
-                    var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
-                    console.log('Day Count', diffDays);
-                    if (diffDays >= 30) {
-                        $scope.wettecount = 1;
-                        $scope.homeText = false;
-                        var d = new Date();
-                        var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                        $window.localStorage.setItem('wetteDate',datestring);
-                    }
-                }
-                $window.localStorage.setItem('wettecount',$scope.wettecount);
-            }
-            
             modal.show();
             $scope.data.errorIcon = 'refresh';
             $scope.data.errorIconSpin = 'true';
@@ -1401,6 +1369,42 @@
                 console.log(data);
                 if (status === 200 && data) {
                     modal.hide();
+                    
+                    // block check
+                    if ($scope.user_active === 'no') {
+                        $scope.homeText = true;
+
+                        if ($window.localStorage.getItem('wetteDate') === null) {
+                            var d = new Date();
+                            var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                            console.log('wetteDate', datestring);
+                            $window.localStorage.setItem('wetteDate',datestring);
+                        }
+
+                        if ($scope.wettecount < 3) {
+                            $scope.wettecount++;
+                            $scope.homeText = false;
+                        } else {
+                            var oneDay = 24*60*60*1000;
+
+                            var wetteDate = $window.localStorage.getItem('wetteDate');
+                            console.log('WetteDate', wetteDate);
+                            var startDate = new Date(wetteDate);
+                            var endDate = new Date();
+
+                            var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+                            console.log('Day Count', diffDays);
+                            if (diffDays >= 30) {
+                                $scope.wettecount = 1;
+                                $scope.homeText = false;
+                                var d = new Date();
+                                var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                                $window.localStorage.setItem('wetteDate',datestring);
+                            }
+                        }
+                        $window.localStorage.setItem('wettecount',$scope.wettecount);
+                    }
+                    
                     $scope.wettepost.title = data['title'];
                     $scope.wettepost.content = data['content'];
                     $scope.wettepost.thumbnail = data['thumbnail'];
@@ -1439,40 +1443,6 @@
             $scope.nextPageNum = '';
             $scope.prePage = false;
             $scope.prePageNum = '';
-            
-            if (pageNum === 1 && $scope.user_active === 'no') {
-                $scope.homeText = true;
-                
-                if ($window.localStorage.getItem('searchDate') === null) {
-                    var d = new Date();
-                    var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                    console.log('searchDate', datestring);
-                    $window.localStorage.setItem('searchDate',datestring);
-                }
-                
-                if ($scope.searchcount < 3) {
-                    $scope.searchcount = $scope.searchcount + 1;
-                    $scope.homeText = false;
-                } else {
-                    var oneDay = 24*60*60*1000;
-                    
-                    var wetteDate = $window.localStorage.getItem('searchDate');
-                    console.log('searchDate', wetteDate);
-                    var startDate = new Date(wetteDate);
-                    var endDate = new Date();
-
-                    var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
-                    console.log('Day Count', diffDays);
-                    if (diffDays >= 30) {
-                        $scope.searchcount = 1;
-                        $scope.homeText = false;
-                        var d = new Date();
-                        var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
-                        $window.localStorage.setItem('searchDate',datestring);
-                    }
-                }
-                $window.localStorage.setItem('searchcount',$scope.searchcount);
-            }
             
             if ($scope.searchTerm !== '') {
                 modal.show();
@@ -1538,6 +1508,44 @@
                     $scope.resultpost.content = data['content'];
                     $scope.resultpost.thumbnail = data['thumbnail'];
                     $scope.resultpost.url = data['url'];
+                    $scope.resultpost.cat_id = data['categories'][1]['id'];
+                    
+                    $scope.homeText = false;
+                    
+                    if ($scope.user_active === 'no' && ($scope.resultpost.cat_id === 176 || $scope.resultpost.cat_id === 174 || $scope.resultpost.cat_id === 34)) {
+                        $scope.homeText = true;
+
+                        if ($window.localStorage.getItem('searchDate') === null) {
+                            var d = new Date();
+                            var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                            console.log('searchDate', datestring);
+                            $window.localStorage.setItem('searchDate',datestring);
+                        }
+
+                        if ($scope.searchcount < 3) {
+                            $scope.searchcount++;
+                            $scope.homeText = false;
+                        } else {
+                            var oneDay = 24*60*60*1000;
+
+                            var wetteDate = $window.localStorage.getItem('searchDate');
+                            console.log('searchDate', wetteDate);
+                            var startDate = new Date(wetteDate);
+                            var endDate = new Date();
+
+                            var diffDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(oneDay)));
+                            console.log('Day Count', diffDays);
+                            if (diffDays >= 30) {
+                                $scope.searchcount = 1;
+                                $scope.homeText = false;
+                                var d = new Date();
+                                var datestring = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                                $window.localStorage.setItem('searchDate',datestring);
+                            }
+                        }
+                        $window.localStorage.setItem('searchcount',$scope.searchcount);
+                    }
+                    
                     myNavigator.pushPage('user/resultsPosts.html', { animation : 'fade' });
                 } else {
                     $scope.data.errorIconSpin = 'false';

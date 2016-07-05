@@ -16,31 +16,26 @@
             <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
         </div>
         <button class="button button--large header1"><img src="images/artikelsIcon.png" alt="" /> <div>Artikels:</div></button>
-        <div ng-show="homeText">
-            <p>Indien u meer van die Solidariteit Regswinkel se dienste wil gebruik maak, moet u ŉ lid wees.</p>
-            <p>Wil u aansluit by <strong>Solidariteit</strong>? <a href="" ng-click="myNavigator.pushPage('user/register.html', { animation : 'slide' } )">Klik hier</a>.</p>
-        </div>
-        <div ng-hide="homeText">
-            <ons-list>
-                <ons-list-item ng-repeat="alist in artikelslist" ng-click="artikelsPosts(alist.id)" class="articleList" modifier="chevron">
+        
+        <ons-list>
+            <ons-list-item ng-repeat="alist in artikelslist" ng-click="artikelsPosts(alist.id)" class="articleList" modifier="chevron">
 
-                    <ons-row>
-                        <ons-col width="85px">
-                            <img ng-src="{{alist.thumbnail || 'images/jy-en-die-reg.png'}}" class="thumbnail" />
-                        </ons-col>
-                        <ons-col>
-                            <h5 ng-bind-html="alist.title"></h5>
-                            <button class="button button--large--quiet" ng-click="artikelsPosts(alist.id)">Lees Meer</button>
-                        </ons-col>
-                        <ons-col width="30px"></ons-col>
-                    </ons-row>
+                <ons-row>
+                    <ons-col width="85px">
+                        <img ng-src="{{alist.thumbnail || 'images/jy-en-die-reg.png'}}" class="thumbnail" />
+                    </ons-col>
+                    <ons-col>
+                        <h5 ng-bind-html="alist.title"></h5>
+                        <button class="button button--large--quiet" ng-click="artikelsPosts(alist.id)">Lees Meer</button>
+                    </ons-col>
+                    <ons-col width="30px"></ons-col>
+                </ons-row>
 
-                </ons-list-item>
-            </ons-list>
-            <p>&nbsp;</p>
-            <div style="text-align: center">
-                <a class="button" ng-show="prePage" ng-click="loadArtikelsPosts(prePageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-left"></i></a> Bl {{pageNum}}/{{pageCount}} <a class="button" ng-show="nextPage" ng-click="loadArtikelsPosts(nextPageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-right"></i></a>
-            </div>
+            </ons-list-item>
+        </ons-list>
+        <p>&nbsp;</p>
+        <div style="text-align: center">
+            <a class="button" ng-show="prePage" ng-click="loadArtikelsPosts(prePageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-left"></i></a> Bl {{pageNum}}/{{pageCount}} <a class="button" ng-show="nextPage" ng-click="loadArtikelsPosts(nextPageNum)" style="background-color: #E85E00;"><i class="fa fa-chevron-right"></i></a>
         </div>
     </div>
 </ons-page>

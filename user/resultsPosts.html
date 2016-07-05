@@ -16,18 +16,24 @@
             <input type="text" ng-model="data.searhFile" style="width: 80%"><ons-icon icon="fa-search" size="25px" fixed-width="true" ng-click="searchFiles(1)" style="color:#fff; text-align: right;"></ons-icon>
         </div>
         <button class="button button--large header1"><img src="images/regshulpIcon.png" alt="" /> <div>Resultate:</div></button>
-        <div style="width: 100%; text-align: center;"><img ng-src="{{resultpost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
-        <ons-row>
-            <ons-col><button class='fb-button' ng-click="shareViaFacebook(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-facebook"></ons-icon></button></ons-col>
-            <ons-col><button class='tweet-button' ng-click="shareViaTwitter(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
-            <ons-col><button class='whatsapp-button' ng-click="shareViaWhatsApp(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
-            <ons-col><button class='email-button' ng-click="shareViaEmail(resultpost.title, resultpost.url, null, null, null, null)"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
-        </ons-row>
-        <ons-list>
-            <ons-list-item  class="articleList">
-                <h4 ng-bind-html="resultpost.title"></h4>
-                <div ng-bind-html="resultpost.content | externalLinks | to_trusted"></div>
-            </ons-list-item>    
-        </ons-list>
+        <div ng-show="homeText">
+            <p>Indien u meer van die Solidariteit Regswinkel se dienste wil gebruik maak, moet u ŉ lid wees.</p>
+            <p>Wil u aansluit by <strong>Solidariteit</strong>? <a href="" ng-click="myNavigator.pushPage('user/register.html', { animation : 'slide' } )">Klik hier</a>.</p>
+        </div>
+        <div ng-hide="homeText">
+            <div style="width: 100%; text-align: center;"><img ng-src="{{resultpost.thumbnail || 'images/jy-en-die-reg.png'}}" /></div>
+            <ons-row>
+                <ons-col><button class='fb-button' ng-click="shareViaFacebook(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-facebook"></ons-icon></button></ons-col>
+                <ons-col><button class='tweet-button' ng-click="shareViaTwitter(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-twitter"></ons-icon></button></ons-col>
+                <ons-col><button class='whatsapp-button' ng-click="shareViaWhatsApp(resultpost.title, null, resultpost.url)"><ons-icon icon="fa-whatsapp"></ons-icon></button></ons-col>
+                <ons-col><button class='email-button' ng-click="shareViaEmail(resultpost.title, resultpost.url, null, null, null, null)"><ons-icon icon="fa-envelope"></ons-icon></button></ons-col>
+            </ons-row>
+            <ons-list>
+                <ons-list-item  class="articleList">
+                    <h4 ng-bind-html="resultpost.title"></h4>
+                    <div ng-bind-html="resultpost.content | externalLinks | to_trusted"></div>
+                </ons-list-item>    
+            </ons-list>
+        </div>
     </div>
 </ons-page>
