@@ -1986,4 +1986,6 @@
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     });
+    
+    window.analytics.startTrackerWithId('UA-61743910-21');
 })();

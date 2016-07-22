@@ -16,11 +16,13 @@
         </div>
         <div style="text-align: center">
             <!--<p>Sleutel jou e-posadres in en jou besonderhede sal aan jou gestuur word.</p>-->
-            <ons-row><ons-col><input type="text" placeholder="Gebruikersnaam" ng-model="data.signupUsername" style="width: 80%"></ons-col></ons-row>
-            <ons-row><ons-col><input type="text" placeholder="Naam" ng-model="data.signupName" style="width: 80%"></ons-col></ons-row>
-            <ons-row><ons-col><input type="text" placeholder="Van" ng-model="data.signupSurname" style="width: 80%"></ons-col></ons-row>
-            <ons-row><ons-col><input type="text" placeholder="E-Pos" ng-model="data.signupEmail" style="width: 80%"></ons-col></ons-row>
-            <ons-row><ons-col><button class="button submitMe" ng-click="signup()" style="margin: 10px 0;">STUUR</button></ons-col></ons-row>
+            <form name="form">
+                <ons-row><ons-col><input type="text" placeholder="Gebruikersnaam" ng-model="data.signupUsername" ng-required="true" style="width: 80%"></ons-col></ons-row>
+                <ons-row><ons-col><input type="text" placeholder="Naam" ng-model="data.signupName" ng-required="true" style="width: 80%"></ons-col></ons-row>
+                <ons-row><ons-col><input type="text" placeholder="Van" ng-model="data.signupSurname" ng-required="true" style="width: 80%"></ons-col></ons-row>
+                <ons-row><ons-col><input type="text" placeholder="E-Pos" ng-model="data.signupEmail" ng-required="true" style="width: 80%"></ons-col></ons-row>
+                <ons-row><ons-col><button class="button submitMe" ng-click="signup()" style="margin: 10px 0;">STUUR</button></ons-col></ons-row>
+            </form>
         </div>
     </div>
 </ons-page>
