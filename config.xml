@@ -2,8 +2,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.solregsapp"
-        versionCode = "101" 
-        version   = "1.01">
+        versionCode = "102" 
+        version   = "1.02">
 
     <name>Regskliek</name>
 
