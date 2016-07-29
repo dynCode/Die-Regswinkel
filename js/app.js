@@ -417,6 +417,8 @@
             var signupSurname = $scope.data.signupSurname;
             var signupEmail = $scope.data.signupEmail;
             
+            var errorHTML,userError,emailError,nameError,vanError;
+            
             if (signupUsername && signupName && signupSurname && signupEmail) {
                 modal.show();
                 $scope.data.errorIcon = 'refresh';
@@ -434,10 +436,37 @@
                             myNavigator.pushPage('index.html', { animation : 'fade' });
                         },'2000');
                     } else {
-                        $scope.data.errorIconSpin = 'false';
-                        $scope.data.errorIcon = 'fa-exclamation-triangle';
-                        $scope.data.errorCode = 'Jou registrasie was onsuksesvol, kontak asb. elektronies@solidariteit.co.za vir bystand';
-                        modal.show();
+                        modal.hide();
+                        
+                        if (data['msg']['19'] != null) {
+                            userError = '<strong>Gebruikersnaam:</strong> '+data['msg']['19']+'<br /><br />';
+                        } else {
+                            userError = '';
+                        }
+                        if (data['msg']['4'] != null) {
+                            emailError = '<strong>Email:</strong> '+data['msg']['4']+'<br /><br />';
+                        } else {
+                            emailError = '';
+                        }
+                        if (data['msg']['5'] != null) {
+                            nameError = '<strong>Naam:</strong> '+data['msg']['5']+'<br /><br />';
+                        } else {
+                            nameError = '';
+                        }
+                        if (data['msg']['6'] != null) {
+                            vanError = '<strong>Van:</strong> '+data['msg']['6']+'<br /><br />';
+                        } else {
+                            vanError = '';
+                        }
+                        
+                        errorHTML = '<div>'+userError+emailError+nameError+vanError+'</div>';
+                        
+                        ons.notification.alert({
+                            messageHTML: errorHTML,
+                            title: 'Fout',
+                            buttonLabel: 'OK',
+                            animation: 'default'
+                        });
                     }
                 })
                 .error(function(data, status) {
