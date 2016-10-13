@@ -263,7 +263,18 @@
             $scope.articlecount = $window.localStorage.getItem('articlecount');
         }
         
+        $scope.pushEventCheck = function(event) {
+            console.log('Event: ',event.page);
+            
+            if (!$window.ga) {
+                return false;
+            } else { 
+                $window.ga('send', 'pageview', { page: event.page });
+            }
+        };
+        
         $scope.init = function() {
+            //$window.ga('send', 'pageview', {'page': 'Home'});
             var user = $window.localStorage.getItem('username'); 
             var pass = $window.localStorage.getItem('password'); 
             
@@ -311,6 +322,7 @@
         
         // process logout
         $scope.logout = function() {
+            //$window.ga('send', 'pageview', {'page': 'Logout'});
             $window.localStorage.removeItem('username'); 
             $window.localStorage.removeItem('password'); 
             $window.localStorage.removeItem('user_active');
@@ -319,6 +331,7 @@
         
         // process login
         $scope.LogIn = function() {
+            //$window.ga('send', 'pageview', {'page': 'Login'});
             var user = $scope.data.username;
             var pass = $scope.data.password;
             
@@ -329,7 +342,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'lookup.php', {"llookup" : "yes", "username" : user, "password" : pass})
                 .success(function(data, status){
-                    if (data['loginValid'] === 'yes') {
+                    if (data['loginValid'] == 'yes') {
                         $scope.data.username = '';
                         $scope.data.password = '';
                         $scope.username = user;
@@ -349,6 +362,7 @@
                         myNavigator.pushPage('user/home.html', { animation : 'fade' });
                         
                     } else {
+                        console.log('DATA: ', data);
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-exclamation-triangle';
                         $scope.data.errorCode = 'Ons kon u nie aanteken nie, probeer asb. weer...';
@@ -371,6 +385,7 @@
         
         //process forgot
         $scope.recover = function () {
+            //$window.ga('send', 'pageview', {'page': 'Recover Login Details'});
             var recoverEmail = $scope.data.emailRecover;
             
             if (recoverEmail) {
@@ -380,7 +395,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'retrieve.php', {"username" : recoverEmail})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = '\'n E-pos is aan u gestuur oor hoe om u besonderhede te herwin.';
@@ -412,6 +427,7 @@
         
         // process signup
         $scope.signup = function () {
+            //$window.ga('send', 'pageview', {'page': 'Signup'});
             var signupUsername = $scope.data.signupUsername;
             var signupName = $scope.data.signupName;
             var signupSurname = $scope.data.signupSurname;
@@ -426,7 +442,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'signup.php', {"username" : signupUsername, "email" : signupEmail, "fullname" : signupName, "surname" : signupSurname})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie vir jou registrasie hou jou epos dop vir jou aktiverings-skakel';
@@ -487,6 +503,7 @@
         
         // process register
         $scope.register = function () {
+            //$window.ga('send', 'pageview', {'page': 'Regsiter'});
             var regName = $scope.data.regName;
             var regEmail = $scope.data.regEmail;
             var regTel = $scope.data.regTel;
@@ -498,7 +515,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'join.php', {"namesurname" : regName, "number" : regTel, "email" : regEmail})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie dat u wil aansluit, ons sal u kontak met verdere besonderhede.';
@@ -532,6 +549,7 @@
         
         // process meld jou saak aan
         $scope.meldSaak = function () {
+            //$window.ga('send', 'pageview', {'page': 'Meld saak aan'});
             var saakName = $scope.data.saakName;
             var saakEmail = $scope.data.saakEmail;
             var saakTel = $scope.data.saakTel;
@@ -544,7 +562,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'aregquery.php', {"namesurname" : saakName, "number" : saakTel, "email" : saakEmail, "msg" : saakSaak})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie, u saak is aan gemeld.';
@@ -578,6 +596,7 @@
         
         // process gesels
         $scope.gesels = function () {
+            //$window.ga('send', 'pageview', {'page': 'Gesels'});
             var geselsName = $scope.data.geselsName;
             var geselsEmail = $scope.data.geselsEmail;
             var geselsTel = $scope.data.geselsTel;
@@ -590,7 +609,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'expquery.php', {"namesurname" : geselsName, "number" : geselsTel, "email" : geselsEmail, "msg" : geselsSaak})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Dankie, u boodskap is gestuur.';
@@ -624,7 +643,7 @@
                
         // load raad page content
         $scope.loadRaPosts = function (pageNum) {
-            
+            //$window.ga('send', 'pageview', {'page': 'Regstellende Aksie - Posts'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -673,6 +692,7 @@
         
         // load raad post content
         $scope.raPost = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Regstellende Aksie - Post '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -707,7 +727,7 @@
         
         // load artikels Posts
         $scope.loadArtikelsPosts = function (pageNum) {
-            
+            //$window.ga('send', 'pageview', {'page': 'Artikels'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -758,6 +778,7 @@
         
         // load artikels Post Content
         $scope.artikelsPosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Artikels - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -792,7 +813,7 @@
         
         // load regsvrae Posts
         $scope.loadRegsvraePosts = function (pageNum) {
-            
+            //$window.ga('send', 'pageview', {'page': 'Regsvrae'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -841,6 +862,7 @@
         
         // load regsvrae Post Content
         $scope.regsvraePosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Regsvrae - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -875,6 +897,7 @@
         
         // load praktyk Posts
         $scope.loadParktykPosts = function (pageNum) {
+            //$window.ga('send', 'pageview', {'page': 'Praktykkodes'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -922,6 +945,7 @@
         
         // load praktyk Post Content
         $scope.praktykPosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Praktykkodes - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -991,6 +1015,7 @@
         
         // send testament data
         $scope.testament = function() {
+            //$window.ga('send', 'pageview', {'page': 'Testament'});
             var testaName = $scope.data.testaName;
             var testaEmail = $scope.data.testaEmail;
             var testaID = $scope.data.testaID;
@@ -1003,7 +1028,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'testament.php', {"namesurname" : testaName, "number" : testaTel, "email" : testaEmail , "id" : testaID})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Baie dankie vir u navraag. Solidariteit sal u binnekort skakel.';
@@ -1037,6 +1062,7 @@
         
         // load sivieleHulp Posts
         $scope.loadSivieleHulpPosts = function (pageNum) {
+            //$window.ga('send', 'pageview', {'page': 'Siviele Hulp'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -1085,6 +1111,7 @@
         
         // load sivieleHulp Post Content
         $scope.sivieleHulpPosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Siviele Hulp - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -1119,6 +1146,7 @@
         
         // load kontrak Posts
         $scope.loadKontrakPosts = function (pageNum) {
+            //$window.ga('send', 'pageview', {'page': 'Aflaaibare kontrakte'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -1167,6 +1195,7 @@
         
         // load kontrak Post Content
         $scope.kontrakPosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Aflaaibare kontrakte - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -1236,20 +1265,22 @@
         
         // send ccma lid data
         $scope.ccmalid = function() {
+            //$window.ga('send', 'pageview', {'page': 'CCMA vir Solidariteitlede'});
             var ccmaName = $scope.data.ccmaName;
             var ccmaEmail = $scope.data.ccmaEmail;
             var ccmaTel = $scope.data.ccmaTel;
             var ccmaSaak = $scope.data.ccmaSaak;
             var ccmaLid = $scope.data.ccmaLid;
+            var ccmanKantoor = $scope.data.ccmanKantoor;
             
-            if (ccmaName && ccmaEmail && ccmaTel && ccmaSaak && ccmaLid) {
+            if (ccmaName && ccmaEmail && ccmaTel && ccmaSaak && ccmaLid && ccmanKantoor) {
                 modal.show();
                 $scope.data.errorIcon = 'refresh';
                 $scope.data.errorIconSpin = 'true';
                 $scope.data.errorCode = '';
-                $http.post(apiPath + 'solccma.php', {"namesurname" : ccmaName, "number" : ccmaTel, "email" : ccmaEmail , "saak" : ccmaSaak, "lid" : ccmaLid})
+                $http.post(apiPath + 'solccma.php', {"namesurname" : ccmaName, "number" : ccmaTel, "email" : ccmaEmail , "saak" : ccmaSaak, "lid" : ccmaLid, "nkantoor" : ccmanKantoor})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Baie dankie vir u navraag. Solidariteit sal u binnekort skakel.';
@@ -1290,6 +1321,7 @@
         
         //kontrak upload function
         $scope.uploadKontrak = function () {
+            //$window.ga('send', 'pageview', {'page': 'Dienskontrak nagaan-diens'});
             var files = $scope.files;
             var fd = new FormData();
             var url = apiPath + 'dienskontrak.php';
@@ -1312,7 +1344,7 @@
                 transformRequest : angular.identity
             })
             .success(function(data) {
-                if (data['result'] === 'success') {
+                if (data['result'] == 'success') {
                     $scope.data.errorIconSpin = 'false';
                     $scope.data.errorIcon = 'fa-thumbs-up';
                     $scope.data.errorCode = 'Ons het u dienskontrak ontvang. Solidariteit sal u binnekort skakel.';
@@ -1340,6 +1372,7 @@
         
         // load wette posts
         $scope.loadwettePosts = function (pageNum) {
+            //$window.ga('send', 'pageview', {'page': 'Wette'});
             $scope.pageNum = '';
             $scope.pageCount = '';
             $scope.nextPage = false;
@@ -1388,6 +1421,7 @@
         
         // load wette Post Content
         $scope.wettePosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Wette - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -1458,6 +1492,7 @@
         
         // search results
         $scope.searchFiles = function (pageNum) {
+            //$window.ga('send', 'pageview', {'page': 'Soek'});
             //$scope.searchTerm = '';
             if ($scope.searchTerm === '') {
                 $scope.searchTerm = $scope.data.searhFile;
@@ -1523,6 +1558,7 @@
         
         // search result post
         $scope.resultsPosts = function (postId) {
+            //$window.ga('send', 'pageview', {'page': 'Soek - Post: '+postId});
             console.log('Post ID', postId);
             modal.show();
             $scope.data.errorIcon = 'refresh';
@@ -1628,6 +1664,7 @@
         
         // beroepsgesondheid form submit
         $scope.bgvSubmit = function () {
+            //$window.ga('send', 'pageview', {'page': 'BEROEPSGESONDHEID EN VEILIGHEID'});
             var beroepSurname = $scope.data.beroepSurname;
             var beroepName = $scope.data.beroepName;
             var beroepID = $scope.data.beroepID;
@@ -1657,7 +1694,7 @@
                 $scope.data.errorCode = '';
                 $http.post(apiPath + 'bgv.php', {"surname" : beroepSurname, "fullname" : beroepName, "id" : beroepID, "job" : beroepJob, "number" : beroepNumber, "email" : beroepEmail, "fax" : beroepFax, "nature_1" : beroepNature_1, "nature_2" : beroepNature_2, "nature_3" : beroepNature_3, "nature_4" : beroepNature_4, "nature_5" : beroepNature_5, "nature_6" : beroepNature_6, "nature_7" : beroepNature_7, "nature_8" : beroepNature_8, "nature_9" : beroepNature_9, "nature_10" : beroepNature_10, "nature_11" : beroepNature_11, "nature_12" : beroepNature_12, "nature_13" : beroepNature_13, "dscp" : beroepDscp})
                 .success(function(data, status){
-                    if (data['result'] === 'success') {
+                    if (data['result'] == 'success') {
                         $scope.data.errorIconSpin = 'false';
                         $scope.data.errorIcon = 'fa-thumbs-up';
                         $scope.data.errorCode = 'Baie dankie dat u die vorm ingevul het. Solidariteit sal u binnekort skakel.';
@@ -1763,9 +1800,9 @@
         }
     });
     
-    module.controller('mapController', function($scope, NgMap, $timeout) {
+    module.controller('mapController', function($scope, NgMap, $timeout, $window) {
         $scope.data = [];
-        
+        //$window.ga('send', 'pageview', {'page': 'Diens Kantore'});
         console.log("navigator.geolocation works well");
         $scope.diensmap = '';
         $scope.diensKantore = [];
@@ -1890,7 +1927,8 @@
         navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     });
     
-    module.controller('ccmaController', function($scope, NgMap, $timeout) {
+    module.controller('ccmaController', function($scope, NgMap, $timeout, $window) {
+        //$window.ga('send', 'pageview', {'page': 'CCMA Kantore'});
         $scope.data = [];
         
         $scope.ccmamap = '';
@@ -2015,6 +2053,17 @@
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     });
-    
-    window.analytics.startTrackerWithId('UA-61743910-21');
 })();
+
+/* Regular JS */
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','js/analytics.js','ga');
+    var ua = 'UA-61743910-22';
+    ga('create', ua, {'storage': 'none','clientId': device.uuid});
+    ga('set','checkProtocolTask',null);
+    ga('set','checkStorageTask',null);
+}

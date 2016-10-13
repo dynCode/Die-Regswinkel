@@ -24,6 +24,35 @@
             <ons-row><ons-col><textarea class="textarea" rows="3" placeholder="Kort beskrywing van saak" ng-model="data.ccmaSaak" style="width: 80%"></textarea></ons-col></ons-row>
             <ons-row><ons-col><label class="radio-button"><input type="radio" name="lid" ng-model="data.ccmaLid" value="Individuele Lid" checked="checked"><div class="radio-button__checkmark"></div> Individuele Lid</label></ons-col></ons-row>
             <ons-row><ons-col><label class="radio-button"><input type="radio" name="lid" ng-model="data.ccmaLid" value="Kollektiewe Lid"><div class="radio-button__checkmark"></div> Kollektiewe Lid</label></ons-col></ons-row>
+            <ons-row>
+                <ons-col>
+                    <select ng-model="data.ccmanKantoor" style="height: 30px; width: 80%; line-height: 25px; font-size: 17px;">
+                        <option value="">Kies CCMA dieskantoor</option>
+                        <option value="CCMA NATIONAL OFFICE">CCMA NATIONAL OFFICE</option>
+                        <option value="CCMA GAUTENG - Ekurhuleni">CCMA GAUTENG - Ekurhuleni</option>
+                        <option value="CCMA GAUTENG - Johannesburg">CCMA GAUTENG - Johannesburg</option>
+                        <option value="CCMA GAUTENG - Tshwane (Pretoria)">CCMA GAUTENG - Tshwane (Pretoria)</option>
+                        <option value="CCMA GAUTENG - Vaal">CCMA GAUTENG - Vaal</option>
+                        <option value="CCMA EASTERN CAPE - East London">CCMA EASTERN CAPE - East London</option>
+                        <option value="CCMA EASTERN CAPE - Port Elizabeth">CCMA EASTERN CAPE - Port Elizabeth</option>
+                        <option value="CCMA FREE STATE - Bloemfontein">CCMA FREE STATE - Bloemfontein</option>
+                        <option value="CCMA FREE STATE - Welkom">CCMA FREE STATE - Welkom</option>
+                        <option value="CCMA KWAZULU-NATAL - Durban">CCMA KWAZULU-NATAL - Durban</option>
+                        <option value="CCMA KWAZULU-NATAL - Newcastle">CCMA KWAZULU-NATAL - Newcastle</option>
+                        <option value="CCMA KWAZULU-NATAL - Pietermaritzburg">CCMA KWAZULU-NATAL - Pietermaritzburg</option>
+                        <option value="CCMA KWAZULU-NATAL - Port Shepstone">CCMA KWAZULU-NATAL - Port Shepstone</option>
+                        <option value="CCMA KWAZULU-NATAL - Richards Bay">CCMA KWAZULU-NATAL - Richards Bay</option>
+                        <option value="CCMA LIMPOPO - Polokwane">CCMA LIMPOPO - Polokwane</option>
+                        <option value="CCMA MPUMALANGA - Nelspruit">CCMA MPUMALANGA - Nelspruit</option>
+                        <option value="CCMA MPUMALANGA - Witbank">CCMA MPUMALANGA - Witbank</option>
+                        <option value="CCMA NORTHERN CAPE - Kimberley">CCMA NORTHERN CAPE - Kimberley</option>
+                        <option value="CCMA NORTH WEST - Klerksdorp">CCMA NORTH WEST - Klerksdorp</option>
+                        <option value="CCMA NORTH WEST - Rustenburg">CCMA NORTH WEST - Rustenburg</option>
+                        <option value="CCMA WESTERN CAPE - Cape Town">CCMA WESTERN CAPE - Cape Town</option>
+                        <option value="CCMA WESTERN CAPE - George">CCMA WESTERN CAPE - George</option>
+                    </select>
+                </ons-col>
+            </ons-row>
             <ons-row><ons-col><button class="button submitMe" ng-click="ccmalid()" style="margin: 10px 0;">STUUR</button></ons-col></ons-row>
         </div>
         <p><small><i>Solidariteit se diens is onderhewig aan die Vakbond se bepalings en voorwaardes. Besoek <a href="http://www.solidariteit.co.za" target="_blank">www.solidariteit.co.za</a></i></small></p>

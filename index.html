@@ -22,9 +22,10 @@
 
         <!-- CSP support mode (required for Windows Universal apps) -->
         <link rel="stylesheet" href="js/angular/angular-csp.css" />
+        
     </head>
     <body ng-controller="AppController">   
-        <ons-navigator title="Navigator" var="myNavigator">
+        <ons-navigator title="Navigator" var="myNavigator" ons-postpush="pushEventCheck(myNavigator.getCurrentPage())">
             <ons-page modifier="BodyHome">
                 <img src="splash.png" style="position: relative; width: 100%; z-index: 1000;" />
                 <div ng-init="init()">
