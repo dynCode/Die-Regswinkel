@@ -106,7 +106,7 @@
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-device" />
     <plugin name="nl.x-services.plugins.socialsharing" />
-    <plugin name="com.phonegap.plugins.facebookconnect" spec="0.9.0" version="0.9.0" source="pgb">
+    <plugin name="cordova-plugin-facebook4" source="npm" spec="1.7.3">
         <param name="APP_ID" value="538475416361924" />
         <param name="APP_NAME" value="Regskliek" />
     </plugin>
