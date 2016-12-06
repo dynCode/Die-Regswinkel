@@ -2,8 +2,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.solregsapp"
-        versionCode = "110" 
-        version   = "1.10">
+        versionCode = "120" 
+        version   = "1.20">
 
     <name>Regskliek</name>
 
@@ -110,7 +110,7 @@
         <param name="APP_ID" value="538475416361924" />
         <param name="APP_NAME" value="Regskliek" />
     </plugin>
-    
+    <plugin name="onesignal-cordova-plugin" spec="^2.0.8" source="npm" />
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
 

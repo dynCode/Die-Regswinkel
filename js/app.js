@@ -2066,4 +2066,13 @@ function onDeviceReady() {
     ga('create', ua, {'storage': 'none','clientId': device.uuid});
     ga('set','checkProtocolTask',null);
     ga('set','checkStorageTask',null);
+    
+    var notificationOpenedCallback = function(jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    };
+
+    window.plugins.OneSignal
+      .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9", "AIzaSyAws0b2h6XB7n5smy77uEfZNxwqBnUXg9k")
+      .handleNotificationOpened(notificationOpenedCallback)
+      .endInit();
 }
