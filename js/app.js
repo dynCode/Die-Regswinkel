@@ -2086,11 +2086,9 @@ function onDeviceReady() {
     window.plugins.OneSignal
         .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9")
         .handleNotificationReceived(function(jsonData) {
-            alert("Notification received: \n" + JSON.stringify(jsonData));
             console.log('Did I receive a notification: ' + JSON.stringify(jsonData));
         })
         .handleNotificationOpened(function(jsonData) {
-            alert("Notification opened: \n" + JSON.stringify(jsonData));
             console.log('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
         })
         .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.InAppAlert)
