@@ -78,7 +78,7 @@ input, textarea {
 }
 
 .page__background {
-    background-color: #efefef;
+    background-color: #ebebeb;
 }
 
 .pageBody {
@@ -103,6 +103,11 @@ input, textarea {
     color: #f48120;
     border-bottom: 2px solid #f48120;
     font-size: 30px;
+}
+
+.logotop img {
+    width: 100%;
+    max-width: 800px;
 }
 
 .disBar {

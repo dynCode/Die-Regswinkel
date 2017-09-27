@@ -2,8 +2,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.solregsapp"
-        versionCode = "120" 
-        version   = "1.20">
+        versionCode = "150" 
+        version   = "1.50">
 
     <name>Regskliek</name>
 
@@ -13,8 +13,8 @@
         The app offers user access to legal information and gives the user the opportunity to contact a legal adviser.
     </description>
 
-    <author href="http://www.myitmanager.co.za" email="support@myitmanager.co.za">
-        My IT Manager
+    <author href="https://solidariteit.co.za/" email="pw@solidariteit.co.za">
+        Solidariteit
     </author>
 
     <platform name="ios" >
@@ -92,9 +92,6 @@
         <preference name="Fullscreen" value="false" />  
     </platform>
  
-    <feature name="http://api.phonegap.com/1.0/network" />
-    <feature name="http://api.phonegap.com/1.0/geolocation" />
-
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
@@ -110,7 +107,7 @@
         <param name="APP_ID" value="538475416361924" />
         <param name="APP_NAME" value="Regskliek" />
     </plugin>
-    <plugin name="onesignal-cordova-plugin" spec="^2.0.8" source="npm" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.1.1" source="npm" />
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
 

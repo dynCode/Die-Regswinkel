@@ -8,10 +8,8 @@
             </span>
         </div>
     </ons-toolbar>
+    <div class="logotop"><img src="images/logoTop.png" alt="" /></div>
     <div class="pageBody">
-        <div style="text-align: center">
-            <img src="images/logoTop.png" width="80%" style="margin-bottom: 20px;" alt="" />
-        </div>
         <div style="height: 100%; width:100%" ng-controller="mapController">
             <h2 class="sectionTop" style='background-color: #f48120; color: #fff'><img src="images/locationIcon.png" alt="" /> <div style="font-size: 20px;">{{naasteKantoor.title || 'U GPS is af'}}</div></h2>
             <div ng-bind-html="naasteKantoor.infoWindow || 'GPS dienste is afgeskakel. Skakel dit asb aan.'"></div>
