@@ -275,6 +275,39 @@
         
         $scope.init = function() {
             //$window.ga('send', 'pageview', {'page': 'Home'});
+            
+            // onsignal code
+            // add Onesignal init code
+            var notificationOpenedCallback = function(jsonData) {
+                console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            };
+
+            /* default onesignal Call
+            window.plugins.OneSignal
+                .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9")
+                .handleNotificationOpened(notificationOpenedCallback)
+                .endInit();
+            */
+            /* onesgnal function from their test sdk */
+            var iosSettings = {};
+                iosSettings["kOSSettingsKeyAutoPrompt"] = false;
+                iosSettings["kOSSettingsKeyInAppLaunchURL"] = true;
+
+            window.plugins.OneSignal
+                .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9")
+                .handleNotificationReceived(function(jsonData) {
+                    console.log('Did I receive a notification: ' + JSON.stringify(jsonData['payload']['additionalData']));
+                    alert('Did I receive a notification: ' + JSON.stringify(jsonData['payload']['additionalData']));
+                })
+                .handleNotificationOpened(function(jsonData) {
+                    console.log('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData['payload']['additionalData']));
+                    alert('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData['payload']['additionalData']));
+                })
+                .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.InAppAlert)
+                .iOSSettings(iosSettings)
+                .endInit();
+            // end
+            
             var user = $window.localStorage.getItem('username'); 
             var pass = $window.localStorage.getItem('password'); 
             
@@ -2066,32 +2099,4 @@ function onDeviceReady() {
     ga('create', ua, {'storage': 'none','clientId': device.uuid});
     ga('set','checkProtocolTask',null);
     ga('set','checkStorageTask',null);
-    
-    // add Onesignal init code
-    var notificationOpenedCallback = function(jsonData) {
-        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-    };
-
-    /* default onesignal Call
-    window.plugins.OneSignal
-        .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9")
-        .handleNotificationOpened(notificationOpenedCallback)
-        .endInit();
-    */
-    /* onesgnal function from their test sdk */
-    var iosSettings = {};
-        iosSettings["kOSSettingsKeyAutoPrompt"] = false;
-        iosSettings["kOSSettingsKeyInAppLaunchURL"] = true;
-
-    window.plugins.OneSignal
-        .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9")
-        .handleNotificationReceived(function(jsonData) {
-            console.log('Did I receive a notification: ' + JSON.stringify(jsonData));
-        })
-        .handleNotificationOpened(function(jsonData) {
-            console.log('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-        })
-        .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.InAppAlert)
-        .iOSSettings(iosSettings)
-        .endInit();
 }
