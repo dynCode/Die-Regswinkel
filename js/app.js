@@ -2088,12 +2088,10 @@ function onDeviceReady() {
     window.plugins.OneSignal
         .startInit("49a3a027-32ae-489d-8fff-4920e8f807e9")
         .handleNotificationReceived(function(jsonData) {
-            console.log('Did I receive a notification: ' + JSON.stringify(jsonData.payload.additionalData));
-            alert('Did I receive a notification: ' + JSON.stringify(jsonData.payload.additionalData));
+            angular.element(document.getElementById('AppController')).scope().resultsPosts(jsonData.payload.additionalData.pid);
         })
         .handleNotificationOpened(function(jsonData) {
-            console.log('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData.payload.additionalData));
-            alert('didOpenRemoteNotificationCallBack: ' + JSON.stringify(jsonData.payload.additionalData));
+            angular.element(document.getElementById('AppController')).scope().resultsPosts(jsonData.payload.additionalData.pid);
         })
         .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.InAppAlert)
         .iOSSettings(iosSettings)
