@@ -23,7 +23,7 @@
         <preference name="target-device" value="universal" />
         <preference name="prerendered-icon" value="true" />
         <preference name="detect-data-types" value="true" />
-        <preference name="exit-on-suspend" value="true" />  
+        <preference name="exit-on-suspend" value="false" />  
         
         <!-- iPhone 6 / 6+ -->
         <icon src="res/icons/ios/icon-60@3x.png" width="180" height="180" />
@@ -86,10 +86,6 @@
         <splash src="res/screen/android/screen-mdpi-portrait.png" qualifier="port-mdpi" />
         <splash src="res/screen/android/screen-hdpi-portrait.png" qualifier="port-hdpi" />
         <splash src="res/screen/android/screen-xhdpi-portrait.png" qualifier="port-xhdpi" />
-    </platform>
-    <platform name="winphone" >
-        <preference name="Orientation" value="portrait" />
-        <preference name="Fullscreen" value="false" />  
     </platform>
  
     <!-- Third party plugins -->
